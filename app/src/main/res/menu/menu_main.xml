@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.aluno.googlemap.MainActivity">
+    <item
+        android:id="@+id/bus1"
+        android:orderInCategory="100"
+        android:title="@string/bus_1"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/bus2"
+        android:orderInCategory="100"
+        android:title="@string/bus_2"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/bus3"
+        android:orderInCategory="100"
+        android:title="@string/bus_3"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/limpaRota"
+        android:orderInCategory="100"
+        android:title="@string/limpar_rotas"
+        app:showAsAction="never" />
+</menu>
