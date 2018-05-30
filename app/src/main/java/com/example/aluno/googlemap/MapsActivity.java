@@ -46,6 +46,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ArrayList<LatLng> listaPontos = new ArrayList<>();
 
     private ArrayList<LatLng> onibus1 = new ArrayList<>();
+    private final String[] textMarcadoresB1 =
+            new String[]{"CTF", "Procuradoria Federal", "Agespisa", "Posto R Sá", "Posto Fiscal dos Pontões",
+                         "Posto Fiscal do Barão", "Posto de Combustível", "Hospital do Barão", "Posto de Combustível",
+                         "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa", "Procuradoria Federal", "CTF"};
     /**
      CTF -> -6.785664, -43.041863
      PROCURADORIA FEDERAL-> -6.777723, -43.031713
@@ -64,6 +68,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      CTF -> -6.785664, -43.041863
      */
     private ArrayList<LatLng> onibus2 = new ArrayList<>();
+    private final String[] textMarcadoresB2 =
+            new String[] {"CTF", "Procuradoria Federal", "Fartote Freitas", "Educandário", "Paraíba", "Antiga Yamaha",
+                          "Hotel Rio Parnaíba", "Rodoviária Nova", "Posto R Sá", "Rádio FM", "Agespisa",
+                          "Procuradoria Federal", "CTF"};
     /**
      CTF -> -6.785664, -43.041863
      PROCURADORIA FEDERAL -> -6.777723, -43.031713
@@ -80,6 +88,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      CTF -> -6.785664, -43.041863
      */
     private ArrayList<LatLng> onibus3 = new ArrayList<>();
+    private final String[] getTextMarcadoresB3 =
+            new String[] {"CTF", "Procuradoria Federal", "Fartote Freitas", "Agespisa", "Rádio FM", "Posto R de Sá", "Rodoviária Nova",
+                          "Posto Fiscal dos Pontões", "Barão", "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa",
+                          "Procuradoria Federal", "CTF"};
     /**
      CTF ->  -6.785664, -43.041863
      PROCURADORIA FEDERAL -> -6.777723, -43.031713
@@ -193,7 +205,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     private void rotasBus1()
     {
-        PolylineOptions linha = new PolylineOptions();
+        PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
+        MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
 
         onibus1.add( new LatLng(-6.785664, -43.041863 )); //CTF
         onibus1.add( new LatLng(-6.785455, -43.042095 ));   //portao +
@@ -252,7 +265,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     private void rotasBus2()
     {
-        PolylineOptions linha = new PolylineOptions();
+        PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
+        MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
 
         onibus2.add( new LatLng(-6.785664, -43.041863 )); //ctf +
         onibus2.add( new LatLng(-6.785455, -43.042095 )); //portao +
@@ -346,7 +360,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     private void rotasBus3()
     {
-        PolylineOptions linha = new PolylineOptions();
+        PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
+        MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
 
         onibus3.add( new LatLng(-6.785664, -43.041863 )); //CTF +
         onibus3.add( new LatLng(-6.785455, -43.042095 )); //portao +
