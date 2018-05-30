@@ -12,6 +12,8 @@ import android.support.v4.content.ContextCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -41,8 +43,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 {
 
     private GoogleMap mMap;
-
     private static final int REQUEST_LOCATION_PERMISSION = 1;
+
+    //private Button btBus1;
+    //private Button btBus2;
+    //private Button btBus3;
+
     private ArrayList<LatLng> listaPontos = new ArrayList<>();
 
     private ArrayList<LatLng> onibus1 = new ArrayList<>();
@@ -88,7 +94,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      CTF -> -6.785664, -43.041863
      */
     private ArrayList<LatLng> onibus3 = new ArrayList<>();
-    private final String[] getTextMarcadoresB3 =
+    private final String[] textMarcadoresB3 =
             new String[] {"CTF", "Procuradoria Federal", "Fartote Freitas", "Agespisa", "Rádio FM", "Posto R de Sá", "Rodoviária Nova",
                           "Posto Fiscal dos Pontões", "Barão", "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa",
                           "Procuradoria Federal", "CTF"};
@@ -119,7 +125,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         inflater.inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
     //Menu que contém as rotas de cada Ônibus
     @Override
@@ -186,6 +191,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //setMapLongClick(mMap);
     }
 
+    public void buttonPress(View view)
+    {
+        /*btBus1 = findViewById(R.id.btBus1);
+        btBus2 = findViewById(R.id.btBus2);
+        btBus3 = findViewById(R.id.btBus3);*/
+
+        switch ( view.getId() )
+        {
+            case R.id.btBus1:
+                mMap.clear();
+                rotasBus1();
+                break;
+
+            case R.id.btBus2:
+                mMap.clear();
+                rotasBus2();
+                break;
+
+            case R.id.btBus3:
+                mMap.clear();
+                rotasBus3();
+                break;
+        }
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
     {
@@ -207,6 +237,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     {
         PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
+        ArrayList<LatLng> b1 = new ArrayList<>();
 
         onibus1.add( new LatLng(-6.785664, -43.041863 )); //CTF
          onibus1.add( new LatLng(-6.785455, -43.042095 ));   //portao +
@@ -255,15 +286,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          PROCURADORIA FEDERAL -> -6.777723, -43.031713 +
          CTF -> -6.785664, -43.041863 +
          */
+        b1.add( new LatLng(-6.785664, -43.041863) );
+        b1.add( new LatLng(-6.777723, -43.031713) );
+        b1.add( new LatLng(-6.782055, -43.021958) );
+        b1.add( new LatLng(-6.777710, -43.009763) );
+        b1.add( new LatLng(-6.763649, -43.010132) );
+        b1.add( new LatLng(-6.755376, -43.013981) );
+        b1.add( new LatLng(-6.755167, -43.013962) );
+        b1.add( new LatLng(-6.755167, -43.013962) );
+        b1.add( new LatLng(-6.755167, -43.013962) );
+        b1.add( new LatLng(-6.763639, -43.010490) );
+        b1.add( new LatLng(-6.777710, -43.009763) );
+        b1.add( new LatLng(-6.784738, -43.015697) );
+        b1.add( new LatLng(-6.782055, -43.021958) );
+        b1.add( new LatLng(-6.777723, -43.031713) );
+        b1.add( new LatLng(-6.785664, -43.041863) );
 
         //Laço utilizado para percorrer cada LatLon e desenhar uma linha entre elas
         for (int i = 0; i < onibus1.size(); i++)
         {
             linha.add( onibus1.get(i) );
         }
+        //Laço para adicionar marcadores no mapa com a descrição do ponto de parada
+        for (int i = 0; i < b1.size(); i++)
+        {
+            mMap.addMarker( mark.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                    .position(b1.get(i)).title(textMarcadoresB1[i]));
+        }
 
         //Adiciona o desenho do laço anterior ao mapa
-        mMap.addPolyline( linha.color(0xffff2222).width(4f) );
+        mMap.addPolyline( linha.color(Color.GREEN).width(4f) );
 
     }
 
@@ -274,6 +326,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     {
         PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
+        ArrayList<LatLng> b2 = new ArrayList<>();
 
         onibus2.add( new LatLng(-6.785664, -43.041863 )); //CTF +
          onibus2.add( new LatLng(-6.785455, -43.042095 )); //portao +
@@ -351,6 +404,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          *   PORTAO CTF -> -6.785455, -43.042095
          * CTF -> -6.785664, -43.041863 +
          */
+        b2.add( new LatLng(-6.785664, -43.041863) );
+        b2.add( new LatLng(-6.777723, -43.031713) );
+        b2.add( new LatLng(-6.781160, -43.022939) );
+        b2.add( new LatLng(-6.771816, -43.023986) );
+        b2.add( new LatLng(-6.768677, -43.019115) );
+        b2.add( new LatLng(-6.771097, -43.012466) );
+        b2.add( new LatLng(-6.774108, -43.009409) );
+        b2.add( new LatLng(-6.784655, -42.996132) );
+        b2.add( new LatLng(-6.777710, -43.009763) );
+        b2.add( new LatLng(-6.784738, -43.015697) );
+        b2.add( new LatLng(-6.782055, -43.021958) );
+        b2.add( new LatLng(-6.777723, -43.031713) );
+        b2.add( new LatLng(-6.785664, -43.041863) );
 
         //Laço utilizado para percorrer cada LatLon e desenhar uma linha entre elas
         for (int i = 0; i < onibus2.size() ; i++)
@@ -358,8 +424,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             linha.add( onibus2.get(i) );
         }
 
+        //Laço para adicionar marcadores com a descrição do ponto de parada
+        for (int i = 0; i < b2.size(); i++)
+        {
+            mMap.addMarker( mark.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                    .position(b2.get(i)).title(textMarcadoresB2[i]));
+        }
+
         //Adiciona o desenho do laço anterior ao mapa
-        mMap.addPolyline( linha.color(0xffff0000).width(4f) );
+        mMap.addPolyline( linha.color(Color.RED).width(4f) );
     }
 
     /**
@@ -369,6 +442,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     {
         PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
+        ArrayList<LatLng> b3 = new ArrayList<>();
 
         onibus3.add( new LatLng(-6.785664, -43.041863 )); //CTF +
          onibus3.add( new LatLng(-6.785455, -43.042095 )); //portao +
@@ -431,14 +505,37 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          CTF ->  -6.785664, -43.041863
          */
 
+        b3.add( new LatLng(-6.785664, -43.041863) );
+        b3.add( new LatLng(-6.777723, -43.031713) );
+        b3.add( new LatLng(-6.781160, -43.022939) );
+        b3.add( new LatLng(-6.782055, -43.021958) );
+        b3.add( new LatLng(-6.784738, -43.015697) );
+        b3.add( new LatLng(-6.777710, -43.009763) );
+        b3.add( new LatLng(-6.784655, -42.996132) );
+        b3.add( new LatLng(-6.763639, -43.010490) );
+        b3.add( new LatLng(-6.754303, -43.026132) );
+        b3.add( new LatLng(-6.763639, -43.010490) );
+        b3.add( new LatLng(-6.777710, -43.009763) );
+        b3.add( new LatLng(-6.784738, -43.015697) );
+        b3.add( new LatLng(-6.782055, -43.021958) );
+        b3.add( new LatLng(-6.777723, -43.031713) );
+        b3.add( new LatLng(-6.785664, -43.041863) );
+
         //Laço utilizado para percorrer cada LatLon e desenhar uma linha entre elas
         for (int i = 0; i < onibus3.size(); i++)
         {
             linha.add( onibus3.get(i) );
         }
 
+        //Laço para adicionar marcadores com a descrição do ponto de parada
+        for (int i = 0; i < b3.size(); i++)
+        {
+            mMap.addMarker( mark.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
+                    .position(b3.get(i)).title(textMarcadoresB3[i]));
+        }
+
         //Adiciona o desenho do laço anterior ao mapa
-        mMap.addPolyline( linha.color(0xffff1111).width(4f));
+        mMap.addPolyline( linha.color(Color.BLUE).width(4f));
     }
 
 
