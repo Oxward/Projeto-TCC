@@ -209,27 +209,34 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
 
         onibus1.add( new LatLng(-6.785664, -43.041863 )); //CTF
-        onibus1.add( new LatLng(-6.785455, -43.042095 ));   //portao +
-        onibus1.add( new LatLng(-6.777718, -43.033510 ));   //drogaria +
-        onibus1.add( new LatLng(-6.777052, -43.033168 ));   //rotatoria +
+         onibus1.add( new LatLng(-6.785455, -43.042095 ));   //portao +
+         onibus1.add( new LatLng(-6.777718, -43.033510 ));   //drogaria +
+         onibus1.add( new LatLng(-6.777052, -43.033168 ));   //rotatoria +
         onibus1.add( new LatLng(-6.777723, -43.031713 )); //PROCURADORIA
         onibus1.add( new LatLng(-6.782055, -43.021958 )); //AGESPISA
-        onibus1.add( new LatLng(-6.784738, -43.015697 ));   //curva+
+         onibus1.add( new LatLng(-6.784738, -43.015697 ));   //curva+
         onibus1.add( new LatLng(-6.777710, -43.009763 )); //POSTO R SA
-        onibus1.add( new LatLng(-6.774250, -43.007421 ));  //curva +
-        onibus1.add( new LatLng(-6.773099, -43.007534 ));  //curva2 +
-        onibus1.add( new LatLng(-6.772417, -43.006933 ));  //curva3 +
+         onibus1.add( new LatLng(-6.774250, -43.007421 ));  //curva +
+         onibus1.add( new LatLng(-6.773099, -43.007534 ));  //curva2 +
+         onibus1.add( new LatLng(-6.772417, -43.006933 ));  //curva3 +
         onibus1.add( new LatLng(-6.763649, -43.010132 )); //POSTO FISCAL PONTOES
-        onibus1.add( new LatLng(-6.756697, -43.012651 ));  //curva +
+         onibus1.add( new LatLng(-6.756697, -43.012651 ));  //curva +
         onibus1.add( new LatLng(-6.755376, -43.013981 ));  //POSTO FISCAL BARAO
         onibus1.add( new LatLng(-6.755167, -43.013962 )); //POSTO DE COMBUSTIVEL
         onibus1.add( new LatLng(-6.755167, -43.013962 )); //HOSPITAL BARAO
         onibus1.add( new LatLng(-6.755167, -43.013962 )); //POSTO DE COMBUSTIVEL
+         onibus1.add( new LatLng(-6.756697, -43.012651 ));  //curva +
         onibus1.add( new LatLng(-6.763639, -43.010490 )); //POSTO FISCAL PONTOES
+         onibus1.add( new LatLng(-6.772417, -43.006933 ));  //curva +
+         onibus1.add( new LatLng(-6.773099, -43.007534 ));  //curva2 +
+         onibus1.add( new LatLng(-6.774250, -43.007421 ));  //curva3 +
         onibus1.add( new LatLng(-6.777710, -43.009763 )); //POSTO R SA
         onibus1.add( new LatLng(-6.784738, -43.015697 )); //FM
         onibus1.add( new LatLng(-6.782055, -43.021958 )); //AGESPISA
         onibus1.add( new LatLng(-6.777723, -43.031713 )); //PROCURADORIA
+         onibus1.add( new LatLng(-6.777052, -43.033168 )); //rotatoria +
+         onibus1.add( new LatLng(-6.777718, -43.033510 )); //drogaria +
+         onibus1.add( new LatLng(-6.785455, -43.042095 )); //portao +
         onibus1.add( new LatLng(-6.785664, -43.041863 )); //CTF
         /*
          CTF -> -6.785664, -43.041863 +
@@ -268,42 +275,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
 
-        onibus2.add( new LatLng(-6.785664, -43.041863 )); //ctf +
-        onibus2.add( new LatLng(-6.785455, -43.042095 )); //portao +
-        onibus2.add( new LatLng(-6.777718, -43.033510 )); //drogaria +
-        onibus2.add( new LatLng(-6.777052, -43.033168 )); //rotatoria +
-        onibus2.add( new LatLng(-6.777723, -43.031713 ));//procuradoria +
-        onibus2.add( new LatLng(-6.781280, -43.023365 ));//antes freitas +
-        onibus2.add( new LatLng(-6.771816, -43.023986 ));//educandário
-        onibus2.add( new LatLng(-6.769026, -43.024119 ));//esquina após educ
-        onibus2.add( new LatLng(-6.768677, -43.019115 ));//paraíba
-        onibus2.add( new LatLng(-6.768524, -43.017495 ));//curva1
-        onibus2.add( new LatLng(-6.768868, -43.016999 ));//curva2
-        onibus2.add( new LatLng(-6.771097, -43.012466 ));//antiga yamaha
-        onibus2.add( new LatLng(-6.771260, -43.012229 ));//curva1
-        onibus2.add( new LatLng(-6.772475, -43.011449 ));//curva2
-        onibus2.add( new LatLng(-6.773010, -43.010518 ));//curva3
-        onibus2.add( new LatLng(-6.774108, -43.009409 ));//hotel
-        onibus2.add( new LatLng(-6.778520, -43.004591 ));//curva
-        onibus2.add( new LatLng(-6.778523, -43.004476 ));//curva2
-        onibus2.add( new LatLng(-6.780612, -43.002353 ));//curva3
-        onibus2.add( new LatLng(-6.781262, -43.001591 ));//curva4
-        onibus2.add( new LatLng(-6.784655, -42.996132 ));//rodoviaria
-        onibus2.add( new LatLng(-6.778669, -43.004371 ));//curva
-        onibus2.add( new LatLng(-6.778930, -43.005090 ));//curva2
-        onibus2.add( new LatLng(-6.778664, -43.005149 ));//curva3
-        onibus2.add( new LatLng(-6.778824, -43.005836 ));//curva4
-        onibus2.add( new LatLng(-6.778424, -43.006458 ));//curva5
-        onibus2.add( new LatLng(-6.778170, -43.006652 ));//curva6
-        onibus2.add( new LatLng(-6.776103, -43.008721 ));//curva7
-        onibus2.add( new LatLng(-6.777710, -43.009763 ));//posto r sá
-        onibus2.add( new LatLng(-6.784738, -43.015697 ));//fm
-        onibus2.add( new LatLng(-6.782055, -43.021958 ));//agespisa
-        onibus2.add( new LatLng(-6.777723, -43.031713 ));//procuradoria
-        onibus2.add( new LatLng(-6.777052, -43.033168 ));//rotatoria trevo
-        onibus2.add( new LatLng(-6.777718, -43.033510 ));//drogaria
-        onibus2.add( new LatLng(-6.785455, -43.042095 ));//portao ctf
-        onibus2.add( new LatLng(-6.785664, -43.041863 ));//ctf
+        onibus2.add( new LatLng(-6.785664, -43.041863 )); //CTF +
+         onibus2.add( new LatLng(-6.785455, -43.042095 )); //portao +
+         onibus2.add( new LatLng(-6.777718, -43.033510 )); //drogaria +
+         onibus2.add( new LatLng(-6.777052, -43.033168 )); //rotatoria +
+        onibus2.add( new LatLng(-6.777723, -43.031713 ));//PROCURADORIA +
+         onibus2.add( new LatLng(-6.781280, -43.023365 ));//antes freitas +
+        onibus2.add( new LatLng(-6.771816, -43.023986 ));//EDUCANDARIO
+         onibus2.add( new LatLng(-6.769026, -43.024119 ));//esquina após educ
+        onibus2.add( new LatLng(-6.768677, -43.019115 ));//PARAIBA
+         onibus2.add( new LatLng(-6.768524, -43.017495 ));//curva1
+         onibus2.add( new LatLng(-6.768868, -43.016999 ));//curva2
+        onibus2.add( new LatLng(-6.771097, -43.012466 ));//ANTIGA YAMAHA
+         onibus2.add( new LatLng(-6.771260, -43.012229 ));//curva1
+         onibus2.add( new LatLng(-6.772475, -43.011449 ));//curva2
+         onibus2.add( new LatLng(-6.773010, -43.010518 ));//curva3
+        onibus2.add( new LatLng(-6.774108, -43.009409 ));//HOTEL
+         onibus2.add( new LatLng(-6.778520, -43.004591 ));//curva
+         onibus2.add( new LatLng(-6.778523, -43.004476 ));//curva2
+         onibus2.add( new LatLng(-6.780612, -43.002353 ));//curva3
+         onibus2.add( new LatLng(-6.781262, -43.001591 ));//curva4
+        onibus2.add( new LatLng(-6.784655, -42.996132 ));//RODOVIARIA
+         onibus2.add( new LatLng(-6.778669, -43.004371 ));//curva
+         onibus2.add( new LatLng(-6.778930, -43.005090 ));//curva2
+         onibus2.add( new LatLng(-6.778664, -43.005149 ));//curva3
+         onibus2.add( new LatLng(-6.778824, -43.005836 ));//curva4
+         onibus2.add( new LatLng(-6.778424, -43.006458 ));//curva5
+         onibus2.add( new LatLng(-6.778170, -43.006652 ));//curva6
+         onibus2.add( new LatLng(-6.776103, -43.008721 ));//curva7
+        onibus2.add( new LatLng(-6.777710, -43.009763 ));//POSTO R SA
+        onibus2.add( new LatLng(-6.784738, -43.015697 ));//FM
+        onibus2.add( new LatLng(-6.782055, -43.021958 ));//AGESPISA
+        onibus2.add( new LatLng(-6.777723, -43.031713 ));//PROCURADORIA
+         onibus2.add( new LatLng(-6.777052, -43.033168 ));//rotatoria trevo
+         onibus2.add( new LatLng(-6.777718, -43.033510 ));//drogaria
+         onibus2.add( new LatLng(-6.785455, -43.042095 ));//portao ctf
+        onibus2.add( new LatLng(-6.785664, -43.041863 ));//CTF
         /*
          *
          * CTF -> -6.785664, -43.041863 +
@@ -364,47 +371,47 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
 
         onibus3.add( new LatLng(-6.785664, -43.041863 )); //CTF +
-        onibus3.add( new LatLng(-6.785455, -43.042095 )); //portao +
-        onibus3.add( new LatLng(-6.777718, -43.033510 )); //drogaria +
-        onibus3.add( new LatLng(-6.777052, -43.033168 )); //rotatoria +
+         onibus3.add( new LatLng(-6.785455, -43.042095 )); //portao +
+         onibus3.add( new LatLng(-6.777718, -43.033510 )); //drogaria +
+         onibus3.add( new LatLng(-6.777052, -43.033168 )); //rotatoria +
         onibus3.add( new LatLng(-6.777723, -43.031713 )); //PROCURADORIA FEDERAL +
         onibus3.add( new LatLng(-6.781453, -43.023127 )); //FREITAS +
         onibus3.add( new LatLng(-6.782055, -43.021958 )); //AGESPISA +
         onibus3.add( new LatLng(-6.784738, -43.015697 )); //FM +
         onibus3.add( new LatLng(-6.777710, -43.009763 )); //POSTO R SA +
-        onibus3.add( new LatLng(-6.775273, -43.008032 )); //curva +
-        onibus3.add( new LatLng(-6.778453, -43.004693 )); //curva2 +
-        onibus3.add( new LatLng(-6.778544, -43.004475 )); //curva3 +
+         onibus3.add( new LatLng(-6.775273, -43.008032 )); //curva +
+         onibus3.add( new LatLng(-6.778453, -43.004693 )); //curva2 +
+         onibus3.add( new LatLng(-6.778544, -43.004475 )); //curva3 +
         onibus3.add( new LatLng(-6.784655, -42.996132 )); //RODOVIARIA NOVA +
-        onibus3.add( new LatLng(-6.778589, -43.004469 )); //curva +
-        onibus3.add( new LatLng(-6.777685, -43.005003 )); //curva2 +
+         onibus3.add( new LatLng(-6.778589, -43.004469 )); //curva +
+         onibus3.add( new LatLng(-6.777685, -43.005003 )); //curva2 +
         onibus3.add( new LatLng(-6.763506, -43.010171 )); //POSTO FISCAL PONTOES +
-        onibus3.add( new LatLng(-6.756897, -43.012577 )); //curva +
-        onibus3.add( new LatLng(-6.755963, -43.013278 )); //curva2 +
-        onibus3.add( new LatLng(-6.755357, -43.014076 )); //curva3 +
-        onibus3.add( new LatLng(-6.754952, -43.015042 )); //curva4 +
-        onibus3.add( new LatLng(-6.754851, -43.016807 )); //curva5 +
-        onibus3.add( new LatLng(-6.755395, -43.022050 )); //curva6 +
-        onibus3.add( new LatLng(-6.755253, -43.023092 )); //curva7 +
+         onibus3.add( new LatLng(-6.756897, -43.012577 )); //curva +
+         onibus3.add( new LatLng(-6.755963, -43.013278 )); //curva2 +
+         onibus3.add( new LatLng(-6.755357, -43.014076 )); //curva3 +
+         onibus3.add( new LatLng(-6.754952, -43.015042 )); //curva4 +
+         onibus3.add( new LatLng(-6.754851, -43.016807 )); //curva5 +
+         onibus3.add( new LatLng(-6.755395, -43.022050 )); //curva6 +
+         onibus3.add( new LatLng(-6.755253, -43.023092 )); //curva7 +
         onibus3.add( new LatLng(-6.754303, -43.026132 )); //BARAO +
-        onibus3.add( new LatLng(-6.755253, -43.023092 )); //curva7 +
-        onibus3.add( new LatLng(-6.755395, -43.022050 )); //curva6 +
-        onibus3.add( new LatLng(-6.754851, -43.016807 )); //curva5 +
-        onibus3.add( new LatLng(-6.754952, -43.015042 )); //curva4 +
-        onibus3.add( new LatLng(-6.755357, -43.014076 )); //curva3 +
-        onibus3.add( new LatLng(-6.755963, -43.013278 )); //curva2 +
-        onibus3.add( new LatLng(-6.756897, -43.012577 )); //curva +
+         onibus3.add( new LatLng(-6.755253, -43.023092 )); //curva7 +
+         onibus3.add( new LatLng(-6.755395, -43.022050 )); //curva6 +
+         onibus3.add( new LatLng(-6.754851, -43.016807 )); //curva5 +
+         onibus3.add( new LatLng(-6.754952, -43.015042 )); //curva4 +
+         onibus3.add( new LatLng(-6.755357, -43.014076 )); //curva3 +
+         onibus3.add( new LatLng(-6.755963, -43.013278 )); //curva2 +
+         onibus3.add( new LatLng(-6.756897, -43.012577 )); //curva +
         onibus3.add( new LatLng(-6.763506, -43.010171 )); //POSTO FISCAL PONTOES
-        onibus3.add( new LatLng(-6.772401, -43.006962 )); //curva
-        onibus3.add( new LatLng(-6.773200, -43.007552 )); //curva2
-        onibus3.add( new LatLng(-6.774165, -43.007390 )); //curva3
+         onibus3.add( new LatLng(-6.772401, -43.006962 )); //curva
+         onibus3.add( new LatLng(-6.773200, -43.007552 )); //curva2
+         onibus3.add( new LatLng(-6.774165, -43.007390 )); //curva3
         onibus3.add( new LatLng(-6.777710, -43.009763 )); //POSTO R SA
         onibus3.add( new LatLng(-6.784738, -43.015697 )); //FM
         onibus3.add( new LatLng(-6.782055, -43.021958 )); //AGESPISA
         onibus3.add( new LatLng(-6.777723, -43.031713 )); //PROCURADORIA FEDERAL
-        onibus3.add( new LatLng(-6.777052, -43.033168 )); //rotatoria +
-        onibus3.add( new LatLng(-6.777718, -43.033510 )); //drogaria +
-        onibus3.add( new LatLng(-6.785455, -43.042095 )); //portao +
+         onibus3.add( new LatLng(-6.777052, -43.033168 )); //rotatoria +
+         onibus3.add( new LatLng(-6.777718, -43.033510 )); //drogaria +
+         onibus3.add( new LatLng(-6.785455, -43.042095 )); //portao +
         onibus3.add( new LatLng(-6.785664, -43.041863 )); //CTF
         /*
          CTF ->  -6.785664, -43.041863 +

@@ -11,4 +11,7 @@
     <string name="bus_2">Ônibus 2</string>
     <string name="bus_3">Ônibus 3</string>
     <string name="limpar_rotas">Limpar Rotas</string>
+    <string name="onibus_1">Ônibus 1</string>
+    <string name="onibus_2">Ônibus 2</string>
+    <string name="onibus_3">Ônibus 3</string>
 </resources>
