@@ -45,10 +45,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
 
-    //private Button btBus1;
-    //private Button btBus2;
-    //private Button btBus3;
-
     private ArrayList<LatLng> listaPontos = new ArrayList<>();
 
     private ArrayList<LatLng> onibus1 = new ArrayList<>();
@@ -155,6 +151,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    //Rotas ao pressionar os botões de demonstração
+    public void buttonPress(View view)
+    {
+        switch ( view.getId() )
+        {
+            case R.id.btBus1:
+                mMap.clear();
+                rotasBus1();
+                break;
+
+            case R.id.btBus2:
+                mMap.clear();
+                rotasBus2();
+                break;
+
+            case R.id.btBus3:
+                mMap.clear();
+                rotasBus3();
+                break;
+        }
+    }
+
     //Adiciona o mapa ao fragment(layouts)
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -185,35 +203,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng ctf = new LatLng(-6.785664, -43.041863);
         mMap.addMarker(new MarkerOptions().position(ctf).title("Marcador no CTF"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ctf, 15f));
-        /*GroundOverlayOptions homeOverlay = new GroundOverlayOptions()
-                .image(BitmapDescriptorFactory.fromResource(R.drawable.android)).position(ctf, 100);*/
-        //mMap.addGroundOverlay(homeOverlay);
-        //setMapLongClick(mMap);
-    }
-
-    public void buttonPress(View view)
-    {
-        /*btBus1 = findViewById(R.id.btBus1);
-        btBus2 = findViewById(R.id.btBus2);
-        btBus3 = findViewById(R.id.btBus3);*/
-
-        switch ( view.getId() )
-        {
-            case R.id.btBus1:
-                mMap.clear();
-                rotasBus1();
-                break;
-
-            case R.id.btBus2:
-                mMap.clear();
-                rotasBus2();
-                break;
-
-            case R.id.btBus3:
-                mMap.clear();
-                rotasBus3();
-                break;
-        }
+        //GroundOverlayOptions homeOverlay = new GroundOverlayOptions()
+        //                .image(BitmapDescriptorFactory.fromResource(R.drawable.android)).position(ctf, 100);
+        //        //mMap.addGroundOverlay(homeOverlay);
+        //        //setMapLongClick(mMap);
     }
 
     @Override
@@ -302,12 +295,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         b1.add( new LatLng(-6.777723, -43.031713) );
         b1.add( new LatLng(-6.785664, -43.041863) );
 
-        //Laço utilizado para percorrer cada LatLon e desenhar uma linha entre elas
+        //Percorre cada LatLon e desenha uma linha entre elas
         for (int i = 0; i < onibus1.size(); i++)
         {
             linha.add( onibus1.get(i) );
         }
-        //Laço para adicionar marcadores no mapa com a descrição do ponto de parada
+        //Adiciona marcadores no mapa com a descrição do ponto de parada
         for (int i = 0; i < b1.size(); i++)
         {
             mMap.addMarker( mark.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
@@ -418,13 +411,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         b2.add( new LatLng(-6.777723, -43.031713) );
         b2.add( new LatLng(-6.785664, -43.041863) );
 
-        //Laço utilizado para percorrer cada LatLon e desenhar uma linha entre elas
+        //Percorrer cada LatLon e desenha uma linha entre elas
         for (int i = 0; i < onibus2.size() ; i++)
         {
             linha.add( onibus2.get(i) );
         }
 
-        //Laço para adicionar marcadores com a descrição do ponto de parada
+        //Adiciona marcadores com a descrição do ponto de parada
         for (int i = 0; i < b2.size(); i++)
         {
             mMap.addMarker( mark.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
@@ -521,13 +514,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         b3.add( new LatLng(-6.777723, -43.031713) );
         b3.add( new LatLng(-6.785664, -43.041863) );
 
-        //Laço utilizado para percorrer cada LatLon e desenhar uma linha entre elas
+        //Percorre cada LatLon e desenha uma linha entre elas
         for (int i = 0; i < onibus3.size(); i++)
         {
             linha.add( onibus3.get(i) );
         }
 
-        //Laço para adicionar marcadores com a descrição do ponto de parada
+        //Adiciona marcadores com a descrição do ponto de parada
         for (int i = 0; i < b3.size(); i++)
         {
             mMap.addMarker( mark.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
