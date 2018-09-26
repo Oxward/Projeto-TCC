@@ -1,4 +1,4 @@
-package com.example.aluno.googlemap;
+package com.example.aluno.googlemap.classes;
 
 public class PontosDeParada
 {

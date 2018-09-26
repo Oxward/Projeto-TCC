@@ -1,4 +1,4 @@
-package com.example.aluno.googlemap;
+package com.example.aluno.googlemap.lists;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,13 +9,12 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
+import com.example.aluno.googlemap.R;
+import com.example.aluno.googlemap.classes.PontosDeParada;
+
 import java.util.ArrayList;
-import java.util.List;
 
 class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
 {
@@ -30,7 +29,7 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
         TextView parada;
     }
 
-    public PontosDeParadaListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<PontosDeParada> objects)
+    PontosDeParadaListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<PontosDeParada> objects)
     {
         super(context, resource, objects);
         mContext = context;
@@ -62,8 +61,8 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
 
             //Código android developers
             holder = new ViewHolder();
-            holder.hora = (TextView) convertView.findViewById(R.id.txtViewHora);
-            holder.parada = (TextView) convertView.findViewById(R.id.txtViewPontoPar);
+            holder.hora = convertView.findViewById(R.id.txtViewHora);
+            holder.parada = convertView.findViewById(R.id.txtViewPontoPar);
             result = convertView;
             convertView.setTag(holder);
         }
@@ -79,11 +78,6 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
 
         holder.hora.setText(pontosDeParada.getHora());
         holder.parada.setText(pontosDeParada.getParada());
-
-//        TextView txHora = convertView.findViewById(R.id.txtViewHora);
-//        TextView txPontos = convertView.findViewById(R.id.txtViewHora);
-//        txHora.setText(hora);
-//        txPontos.setText(parada);
 
         return convertView;
     }
