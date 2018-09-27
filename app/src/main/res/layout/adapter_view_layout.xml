@@ -20,13 +20,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="30">
-        
+
         <TextView
             android:gravity="center"
             android:text="Parada"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/txtViewPontoPar"></TextView>
+            android:id="@+id/txtViewPontoPar" />
         
     </LinearLayout>
 
