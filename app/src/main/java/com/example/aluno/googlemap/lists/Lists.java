@@ -79,6 +79,5 @@ public class Lists extends AppCompatActivity {
         //ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.adapter_view_layout, pontosDeParadas);
         PontosDeParadaListAdapter arrayAdapter = new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, pontosDeParadas);
         lists.setAdapter(arrayAdapter);
-
     }
 }

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">GoogleMap</string>
-    <string name="title_activity_maps">Map</string>
+    <string name="app_name">PassaAonde?</string>
+    <string name="title_activity_maps">Intinerário</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
