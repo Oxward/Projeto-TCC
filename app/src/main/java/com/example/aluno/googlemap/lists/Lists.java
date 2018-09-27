@@ -3,7 +3,6 @@ package com.example.aluno.googlemap.lists;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.aluno.googlemap.R;
@@ -23,8 +22,8 @@ public class Lists extends AppCompatActivity {
         Log.d(TAG, "onCreate: Iniciou");
 
         ListView lists = findViewById(R.id.list_view);
-        ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header, lists);
-        lists.addHeaderView(viewGroup);
+        //ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header, lists);
+        //lists.addHeaderView(viewGroup);
 
         //Adicionando pontos de parada
         PontosDeParada pdp = new PontosDeParada("06:00", "CTF");
