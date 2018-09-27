@@ -52,10 +52,8 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
         //Objeto ViewHolder
         ViewHolder holder;
 
-
         if( convertView == null)
         {
-
             LayoutInflater layoutInflater = LayoutInflater.from(mContext);
             convertView = layoutInflater.inflate(mResource, parent, false);
 
@@ -81,4 +79,5 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
 
         return convertView;
     }
+
 }

@@ -30,7 +30,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".lists.ListView"
+            android:name=".lists.Lists"
             android:label="@string/title_activity_maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +42,7 @@
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar" />
-        <!-- <activity android:name=".lists.ListView"></activity> -->
+        <!-- <activity android:name=".lists.Lists"></activity> -->
     </application>
 
 </manifest>

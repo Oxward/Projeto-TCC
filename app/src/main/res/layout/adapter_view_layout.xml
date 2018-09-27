@@ -13,20 +13,20 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:id="@+id/txtViewHora"
-        android:layout_weight="66.6"/>
+        android:layout_weight="70" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="33.3">
+        android:layout_weight="30">
         
         <TextView
             android:gravity="center"
             android:text="Parada"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/txtViewPontoPar"/>
+            android:id="@+id/txtViewPontoPar"></TextView>
         
     </LinearLayout>
 
