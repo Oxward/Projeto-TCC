@@ -25,11 +25,11 @@ public class Pontos_ViewModel extends AndroidViewModel {
         pontosDeParadaList = pontosRepository.getPdPByTurn(turn);
     }
 
-    List<PontosDeParada> getAllPoints() {
+    public List<PontosDeParada> getAllPoints() {
         return pontosDeParadaList;
     }
 
-    List<PontosDeParada> getPdPByTurn(String turn) {
+    public List<PontosDeParada> getPdPByTurn(String turn) {
         return pontosRepository.getPdPByTurn(turn);
     }
 
