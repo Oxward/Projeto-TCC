@@ -36,8 +36,6 @@ public class Lists extends AppCompatActivity {
         PontosDeParada pdp3 = new PontosDeParada("06:30", "No Carai");*/
 
         new selectAsync(new Pontos_ViewModel(getApplication()), mList).execute();
-        new selectAsync(new Pontos_ViewModel(getApplication()), mList).execute();
-        new selectAsync(new Pontos_ViewModel(getApplication()), mList).execute();
         ArrayList<PontosDeParada> pontosDeParadas = (ArrayList<PontosDeParada>) mList;
 
         /*

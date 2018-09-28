@@ -61,25 +61,6 @@ public class PontosDeParada
         this.longPdP = longPdP;
     }
 
-    public static PontosDeParada[] populateDB() {
-        return new PontosDeParada[]{
-                new PontosDeParada((byte) 1, "CTF", "07:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Procuradoria Federal", "08:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Freitas", "09:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Educandário", "10:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Paraíba", "11:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Antiga Yamaha", "12:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Hotel Pousada", "13:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Rodoviária nova", "14:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Posto R. Sá", "15:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "FM", "16:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Agespisa", "17:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Procuradoria Federal", "18:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "CTF", "19:30", -6.777723, -43.031713)
-        };
-        //Bus 2
-    }
-
     public int getIdPdP() {
         return idPdP;
     }
@@ -126,5 +107,24 @@ public class PontosDeParada
 
     public void setLongPdP(double longPdP) {
         this.longPdP = longPdP;
+    }
+
+    public static PontosDeParada[] populateDB() {
+        return new PontosDeParada[]{
+                new PontosDeParada((byte) 1, "CTF", "07:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Procuradoria Federal", "08:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Freitas", "09:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Educandário", "10:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Paraíba", "11:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Antiga Yamaha", "12:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Hotel Pousada", "13:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Rodoviária nova", "14:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Posto R. Sá", "15:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "FM", "16:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Agespisa", "17:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "Procuradoria Federal", "18:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "CTF", "19:30", -6.777723, -43.031713)
+        };
+        //Bus 2
     }
 }
