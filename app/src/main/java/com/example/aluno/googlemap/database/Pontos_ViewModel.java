@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 
 import com.example.aluno.googlemap.classes.PontosDeParada;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Pontos_ViewModel extends AndroidViewModel {
@@ -16,7 +17,7 @@ public class Pontos_ViewModel extends AndroidViewModel {
     public Pontos_ViewModel(@NonNull Application application) {
         super(application);
         pontosRepository = new PontosRepository(application);
-        pontosDeParadaList = pontosRepository.getAllPdP();
+        pontosDeParadaList = new ArrayList<>();
     }
 
     public Pontos_ViewModel(@NonNull Application application, String turn) {
@@ -26,6 +27,7 @@ public class Pontos_ViewModel extends AndroidViewModel {
     }
 
     public List<PontosDeParada> getAllPoints() {
+        pontosDeParadaList = pontosRepository.getAllPdP();
         return pontosDeParadaList;
     }
 

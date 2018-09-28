@@ -6,12 +6,11 @@ import android.arch.persistence.room.Database;
 import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
+import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.example.aluno.googlemap.classes.PontosDeParada;
-
-import java.util.concurrent.Executors;
 
 import static com.example.aluno.googlemap.database.ApplicationDatabase.DATABASE_VERSION;
 
@@ -48,17 +47,13 @@ public abstract class ApplicationDatabase extends RoomDatabase {
                             database.setDatabaseCreated();
                         });
                     }
-                }).addCallback(new Callback() {
+
                     @Override
-                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                        super.onCreate(db);
-                        Executors.newSingleThreadScheduledExecutor()
-                                .execute(() -> {
-                                    getDatabase(context, appExecutors).pdpDAO().insertPdP(PontosDeParada.populateDB());
-                                    Log.d(TAG, "run: Populou BD");
-                                });
+                    public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                        super.onOpen(db);
+                        new PopulateDbAsync(INSTANCE).execute();
                     }
-                }).build();
+                }).fallbackToDestructiveMigration().build();
     }
 
     private static void addDelay() {
@@ -79,6 +74,23 @@ public abstract class ApplicationDatabase extends RoomDatabase {
 
     private void setDatabaseCreated() {
         mIsDatabaseCreated.postValue(true);
+    }
+
+    private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
+
+        private final Pontos_DAO pontosDao;
+
+        PopulateDbAsync(ApplicationDatabase database) {
+            pontosDao = database.pdpDAO();
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            pontosDao.deleteAllPdP();
+            PontosDeParada.populateDB();
+            Log.d(TAG, "doInBackground: Populou DB");
+            return null;
+        }
     }
 
 }

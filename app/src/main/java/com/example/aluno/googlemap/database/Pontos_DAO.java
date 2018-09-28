@@ -21,4 +21,7 @@ public interface Pontos_DAO {
     @Query("SELECT * FROM pontoDeParada WHERE turnoParada = :turno")
     List<PontosDeParada> selectPdPTurno(String turno);
 
+    @Query("DELETE FROM pontoDeParada")
+    void deleteAllPdP();
+
 }
