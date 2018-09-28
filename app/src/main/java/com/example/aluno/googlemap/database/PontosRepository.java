@@ -20,26 +20,28 @@ public class PontosRepository {
         return pontos_dao.selectAllPdP();
     }
 
-    public List<PontosDeParada> getPdPByTurn(String turno) {
-        return pontos_dao.selectPdPTurno(turno);
+    public List<PontosDeParada> getPdPByTurn(String turn) {
+        return pontos_dao.selectPdPTurno(turn);
     }
 
-    public void insertPonto(PontosDeParada pontosDeParada) {
-
+    public void insertPonto(PontosDeParada... pontosDeParada) {
+        new insertAsyncTask(pontos_dao).execute(pontosDeParada);
     }
 
     private static class insertAsyncTask extends AsyncTask<PontosDeParada, Void, Void> {
 
         private Pontos_DAO mAsyncDAO;
 
-        public insertAsyncTask(Pontos_DAO pontos_dao) {
+        insertAsyncTask(Pontos_DAO pontos_dao) {
             this.mAsyncDAO = pontos_dao;
         }
 
         @Override
         protected Void doInBackground(PontosDeParada... pontosDeParadas) {
 
-
+            for (PontosDeParada p : pontosDeParadas) {
+                mAsyncDAO.insertPdP(p);
+            }
             return null;
         }
     }
