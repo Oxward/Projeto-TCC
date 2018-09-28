@@ -41,8 +41,8 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //Informações dos pontos
-        String hora = getItem(position).getHora();
-        String parada = getItem(position).getParada();
+        String hora = getItem(position).getHoraPdP();
+        String parada = getItem(position).getLocalPdP();
 
         //Cria um objeto ponto de parada
         PontosDeParada pontosDeParada = new PontosDeParada(hora, parada);
@@ -74,8 +74,8 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
         result.startAnimation(animation);
         lastPosition = position;
 
-        holder.hora.setText(pontosDeParada.getHora());
-        holder.parada.setText(pontosDeParada.getParada());
+        holder.hora.setText(pontosDeParada.getHoraPdP());
+        holder.parada.setText(pontosDeParada.getLocalPdP());
 
         return convertView;
     }

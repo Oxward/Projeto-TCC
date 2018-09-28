@@ -11,6 +11,8 @@ import android.util.Log;
 
 import com.example.aluno.googlemap.classes.PontosDeParada;
 
+import java.util.concurrent.Executors;
+
 import static com.example.aluno.googlemap.database.ApplicationDatabase.DATABASE_VERSION;
 
 @Database(entities = {PontosDeParada.class}, exportSchema = false, version = DATABASE_VERSION)
@@ -45,6 +47,16 @@ public abstract class ApplicationDatabase extends RoomDatabase {
                             ApplicationDatabase database = ApplicationDatabase.getDatabase(context, appExecutors);
                             database.setDatabaseCreated();
                         });
+                    }
+                }).addCallback(new Callback() {
+                    @Override
+                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                        super.onCreate(db);
+                        Executors.newSingleThreadScheduledExecutor()
+                                .execute(() -> {
+                                    getDatabase(context, appExecutors).pdpDAO().insertPdP(PontosDeParada.populateDB());
+                                    Log.d(TAG, "run: Populou BD");
+                                });
                     }
                 }).build();
     }

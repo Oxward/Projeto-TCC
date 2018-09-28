@@ -13,7 +13,7 @@ import java.util.List;
 public interface Pontos_DAO {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    int insertPdP(PontosDeParada... pontosDeParada);
+    void insertPdP(PontosDeParada... pontosDeParada);
 
     @Query("SELECT * FROM pontoDeParada")
     List<PontosDeParada> selectAllPdP();
