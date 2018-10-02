@@ -1,7 +1,6 @@
 package com.example.aluno.googlemap.lists;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -55,11 +54,5 @@ public class Lists extends AppCompatActivity {
         PontosDeParadaListAdapter arrayAdapter = new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, mList);
         lists.setAdapter(arrayAdapter);
     }
-
-    @Override
-    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
-        super.onPostCreate(savedInstanceState);
-    }
-
 
 }

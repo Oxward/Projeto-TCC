@@ -1,5 +1,6 @@
 package com.example.aluno.googlemap.database;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -17,6 +18,9 @@ public interface Pontos_DAO {
 
     @Query("SELECT * FROM pontoDeParada")
     List<PontosDeParada> selectAllPdP();
+
+    @Query("SELECT * FROM pontoDeParada")
+    LiveData<List<PontosDeParada>> selectPdP();
 
     @Query("SELECT * FROM pontoDeParada WHERE turnoParada = :turno")
     List<PontosDeParada> selectPdPTurno(String turno);

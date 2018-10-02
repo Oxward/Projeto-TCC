@@ -63,4 +63,8 @@ dependencies {
     //Paging
     implementation "android.arch.paging:runtime:$paging_version"
 
+    //LifeCycle
+    implementation "android.arch.lifecycle:extensions:1.1.1"
+    annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
+
 }
