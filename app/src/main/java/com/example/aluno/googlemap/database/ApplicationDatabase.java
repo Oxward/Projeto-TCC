@@ -53,7 +53,7 @@ public abstract class ApplicationDatabase extends RoomDatabase {
                         super.onOpen(db);
                         new PopulateDbAsync(INSTANCE).execute();
                     }
-                }).fallbackToDestructiveMigration().build();
+                }).fallbackToDestructiveMigration().allowMainThreadQueries().build();
     }
 
     private static void addDelay() {

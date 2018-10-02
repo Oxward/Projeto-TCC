@@ -1,7 +1,7 @@
 package com.example.aluno.googlemap.lists;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -12,12 +12,10 @@ import com.example.aluno.googlemap.classes.PontosDeParada;
 import com.example.aluno.googlemap.database.Pontos_ViewModel;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Lists extends AppCompatActivity {
 
     private static final String TAG = "Lists";
-    private static List<PontosDeParada> mList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,82 +33,33 @@ public class Lists extends AppCompatActivity {
         PontosDeParada pdp2 = new PontosDeParada("06:20", "Sei lá");
         PontosDeParada pdp3 = new PontosDeParada("06:30", "No Carai");*/
 
-        new selectAsync(new Pontos_ViewModel(getApplication()), mList).execute();
-        ArrayList<PontosDeParada> pontosDeParadas = (ArrayList<PontosDeParada>) mList;
+        Pontos_ViewModel pontos_viewModel = new Pontos_ViewModel(getApplication());
+        ArrayList<PontosDeParada> mList = new ArrayList<>(pontos_viewModel.getAllPoints());
 
         /*
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);
+        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
+        pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);
+        pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);
+        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);
+        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
+        pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);
+        pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);
+        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);
+        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
+        pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);
+        pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);
+        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);
+        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
         pontosDeParadas.add(pdp3);*/
 
-        //ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.adapter_view_layout, pontosDeParadas);
-        PontosDeParadaListAdapter arrayAdapter = new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, pontosDeParadas);
+        PontosDeParadaListAdapter arrayAdapter = new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, mList);
         lists.setAdapter(arrayAdapter);
     }
 
-    private static class selectAsync extends AsyncTask<Void, Void, List<PontosDeParada>> {
-
-        private Pontos_ViewModel pontos_viewModel;
-        private List<PontosDeParada> mAsyncList;
-
-        private selectAsync(Pontos_ViewModel markers_viewModel, List<PontosDeParada> mList) {
-            this.pontos_viewModel = markers_viewModel;
-            this.mAsyncList = mList;
-        }
-
-        @Override
-        protected List<PontosDeParada> doInBackground(Void... voids) {
-            Log.d("asd", "doInBackground: " + mAsyncList.size());
-            mAsyncList.addAll(pontos_viewModel.getAllPoints());
-            Log.d("asd", "doInBackground: " + mAsyncList.size());
-            return mAsyncList;
-        }
-
-        @Override
-        protected void onPostExecute(List<PontosDeParada> list) {
-            Log.d("asd", "doInBackground: " + list.size());
-            mList = list;
-            Log.d("asd", "doInBackground: " + mList.size());
-            mAsyncList.clear();
-            mList.clear();
-        }
+    @Override
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
     }
+
 
 }

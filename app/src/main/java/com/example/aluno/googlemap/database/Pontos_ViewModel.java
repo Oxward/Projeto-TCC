@@ -11,18 +11,18 @@ import java.util.List;
 
 public class Pontos_ViewModel extends AndroidViewModel {
 
-    private PontosRepository pontosRepository;
+    private Pontos_Repository pontosRepository;
     private List<PontosDeParada> pontosDeParadaList;
 
     public Pontos_ViewModel(@NonNull Application application) {
         super(application);
-        pontosRepository = new PontosRepository(application);
+        pontosRepository = new Pontos_Repository(application);
         pontosDeParadaList = new ArrayList<>();
     }
 
     public Pontos_ViewModel(@NonNull Application application, String turn) {
         super(application);
-        pontosRepository = new PontosRepository(application);
+        pontosRepository = new Pontos_Repository(application);
         pontosDeParadaList = pontosRepository.getPdPByTurn(turn);
     }
 

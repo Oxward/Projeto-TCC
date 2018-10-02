@@ -9,12 +9,12 @@ import com.example.aluno.googlemap.classes.PontosDeParada;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PontosRepository {
+public class Pontos_Repository {
 
     private Pontos_DAO pontos_dao;
     private static List<PontosDeParada> pontosDeParadaList;
 
-    PontosRepository(Application application) {
+    Pontos_Repository(Application application) {
         ApplicationDatabase database = ApplicationDatabase.getDatabase(application, new AppExecutors());
         pontos_dao = database.pdpDAO();
         pontosDeParadaList = new ArrayList<>();
