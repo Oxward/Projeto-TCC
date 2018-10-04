@@ -11,6 +11,7 @@ import com.example.aluno.googlemap.classes.PontosDeParada;
 import com.example.aluno.googlemap.database.Pontos_ViewModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Lists extends AppCompatActivity {
 
@@ -32,26 +33,26 @@ public class Lists extends AppCompatActivity {
         PontosDeParada pdp2 = new PontosDeParada("06:20", "Sei lá");
         PontosDeParada pdp3 = new PontosDeParada("06:30", "No Carai");*/
 
-        Pontos_ViewModel pontos_viewModel = new Pontos_ViewModel(getApplication());
-        ArrayList<PontosDeParada> mList = new ArrayList<>(pontos_viewModel.getAllPoints());
+        List<PontosDeParada> mList = new ArrayList<>(new Pontos_ViewModel(getApplication()).getAllPoints());
+        Log.d(TAG, "onCreate: mList: " + mList.size());
 
-        /*
-        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);
-        pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);       pontosDeParadas.add(pdp);
-        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);       pontosDeParadas.add(pdp3);
-        pontosDeParadas.add(pdp);        pontosDeParadas.add(pdp1);       pontosDeParadas.add(pdp2);
-        pontosDeParadas.add(pdp3);*/
+        /*mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
+        mList.add(pdp3);       mList.add(pdp);        mList.add(pdp1);
+        mList.add(pdp2);       mList.add(pdp3);       mList.add(pdp);
+        mList.add(pdp1);       mList.add(pdp2);       mList.add(pdp3);
+        mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
+        mList.add(pdp3);       mList.add(pdp);        mList.add(pdp1);
+        mList.add(pdp2);       mList.add(pdp3);       mList.add(pdp);
+        mList.add(pdp1);       mList.add(pdp2);       mList.add(pdp3);
+        mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
+        mList.add(pdp3);       mList.add(pdp);        mList.add(pdp1);
+        mList.add(pdp2);       mList.add(pdp3);       mList.add(pdp);
+        mList.add(pdp1);       mList.add(pdp2);       mList.add(pdp3);
+        mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
+        mList.add(pdp3);*/
 
-        PontosDeParadaListAdapter arrayAdapter = new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, mList);
+        PontosDeParadaListAdapter arrayAdapter =
+                new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, (ArrayList<PontosDeParada>) mList);
         lists.setAdapter(arrayAdapter);
     }
 

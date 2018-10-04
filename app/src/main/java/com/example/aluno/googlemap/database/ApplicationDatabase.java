@@ -12,16 +12,47 @@ import android.util.Log;
 
 import com.example.aluno.googlemap.classes.PontosDeParada;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.example.aluno.googlemap.database.ApplicationDatabase.DATABASE_VERSION;
 
 @Database(entities = {PontosDeParada.class}, exportSchema = false, version = DATABASE_VERSION)
 public abstract class ApplicationDatabase extends RoomDatabase {
 
+    private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
+
     static final int DATABASE_VERSION = 1;
     private static final String TAG = "ApplicationDatabase";
     private static final String DATABASE_NAME = "passaAonde";
+
+    private static ApplicationDatabase buildDatabase(final Context context, final AppExecutors appExecutors) {
+        return Room.databaseBuilder(context.getApplicationContext(), ApplicationDatabase.class, DATABASE_NAME)
+                .addCallback(new Callback() {
+                    @Override
+                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
+                        super.onCreate(db);
+                        appExecutors.diskIO().execute(() -> {
+                            addDelay();
+                            ApplicationDatabase database = ApplicationDatabase.getDatabase(context, appExecutors);
+                            database.setDatabaseCreated();
+                            Log.d(TAG, "onCreate: Está aqui");
+                        });
+                    }
+
+                    @Override
+                    public void onOpen(@NonNull SupportSQLiteDatabase db) {
+                        super.onOpen(db);
+                        appExecutors.diskIO().execute(() -> {
+                            //getDatabase(context, appExecutors).pdpDAO().insertPdP(PontosDeParada.populateDB());
+                            new PopulateDbAsync(getDatabase(context, appExecutors)).execute();
+                            Log.d(TAG, "onOpen: Populou o caralho");
+                        });
+                    }
+                }).fallbackToDestructiveMigration().build();
+    }
+
     private static volatile ApplicationDatabase INSTANCE;
-    private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
     public static ApplicationDatabase getDatabase(final Context context, final AppExecutors appExecutors) {
         if (INSTANCE == null) {
@@ -35,26 +66,7 @@ public abstract class ApplicationDatabase extends RoomDatabase {
         return INSTANCE;
     }
 
-    private static ApplicationDatabase buildDatabase(final Context context, final AppExecutors appExecutors) {
-        return Room.databaseBuilder(context.getApplicationContext(), ApplicationDatabase.class, DATABASE_NAME)
-                .addCallback(new Callback() {
-                    @Override
-                    public void onCreate(@NonNull SupportSQLiteDatabase db) {
-                        super.onCreate(db);
-                        appExecutors.diskIO().execute(() -> {
-                            addDelay();
-                            ApplicationDatabase database = ApplicationDatabase.getDatabase(context, appExecutors);
-                            database.setDatabaseCreated();
-                        });
-                    }
-
-                    @Override
-                    public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                        super.onOpen(db);
-                        new PopulateDbAsync(INSTANCE).execute();
-                    }
-                }).fallbackToDestructiveMigration().allowMainThreadQueries().build();
-    }
+    public abstract Pontos_DAO pdpDAO();
 
     private static void addDelay() {
         try {
@@ -63,8 +75,6 @@ public abstract class ApplicationDatabase extends RoomDatabase {
             Log.d(TAG, "addDelay: Thread Error");
         }
     }
-
-    public abstract Pontos_DAO pdpDAO();
 
     private void updateDatabaseCreated(final Context context) {
         if (context.getDatabasePath(DATABASE_NAME).exists()) {
@@ -85,11 +95,23 @@ public abstract class ApplicationDatabase extends RoomDatabase {
         }
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
         protected Void doInBackground(Void... voids) {
             pontosDao.deleteAllPdP();
-            PontosDeParada.populateDB();
+            pontosDao.insertPdP(PontosDeParada.populateDB());
             Log.d(TAG, "doInBackground: Populou DB");
+            List<PontosDeParada> l = new ArrayList<>(pontosDao.selectAllPdP());
+            Log.d(TAG, "onPostExecute: list size: " + l.size());
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
         }
     }
 
