@@ -44,12 +44,11 @@ public abstract class ApplicationDatabase extends RoomDatabase {
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
                         super.onOpen(db);
                         appExecutors.diskIO().execute(() -> {
-                            //getDatabase(context, appExecutors).pdpDAO().insertPdP(PontosDeParada.populateDB());
                             new PopulateDbAsync(getDatabase(context, appExecutors)).execute();
-                            Log.d(TAG, "onOpen: Populou o caralho");
+                            Log.d(TAG, "onOpen: Populou Database");
                         });
                     }
-                }).fallbackToDestructiveMigration().build();
+                }).build(); //.fallBackToDestructiveMigration()
     }
 
     private static volatile ApplicationDatabase INSTANCE;
@@ -70,7 +69,7 @@ public abstract class ApplicationDatabase extends RoomDatabase {
 
     private static void addDelay() {
         try {
-            Thread.sleep(4000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             Log.d(TAG, "addDelay: Thread Error");
         }
