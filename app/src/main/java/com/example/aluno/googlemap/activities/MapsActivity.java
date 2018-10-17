@@ -38,15 +38,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 {
 
     private GoogleMap mMap;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
-
-    private ArrayList<LatLng> listaPontos = new ArrayList<>();
 
     private ArrayList<LatLng> onibus1 = new ArrayList<>();
     private final String[] textMarcadoresB1 =
@@ -224,7 +221,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    /**
+    /*
      * Traça as rotas do Primeiro Ônibus
      */
     private void rotasBus1()
@@ -313,7 +310,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    /**
+    /*
      * Traça as rotas do Segundo Ônibus
      */
     private void rotasBus2()
@@ -429,7 +426,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addPolyline( linha.color(Color.RED).width(4f) );
     }
 
-    /**
+    /*
      * Traça as rotas do Terceiro Ônibus
      */
     private void rotasBus3()
@@ -530,50 +527,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //Adiciona o desenho do laço anterior ao mapa
         mMap.addPolyline( linha.color(Color.BLUE).width(4f));
-    }
-
-
-    /**
-     * Adiciona Marcadores de Forma Manual
-     * Não faz parte do Trabalho
-     */
-    private void setMapLongClick(final GoogleMap map)
-    {
-        map.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener()
-        {
-            @Override
-            public void onMapLongClick(LatLng latLng) {
-                if (listaPontos.size() == 2)
-                {
-                    listaPontos.clear();
-                    mMap.clear();
-                }
-                listaPontos.add(latLng);
-                MarkerOptions marcador = new MarkerOptions();
-                marcador.position(latLng);
-                if(listaPontos.size() == 1)
-                {
-                    //primeiro marcador
-                    marcador.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
-                } else
-                {
-                    //segundo marcador
-                    marcador.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-                }
-                map.addMarker(marcador);
-                String info = String.format(Locale.getDefault(), "Lat: %1$.5f, Long: %1$.5f",
-                        latLng.latitude, latLng.longitude);
-                map.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET))
-                        .position(latLng).title("Marcador").snippet(info));
-
-                if(listaPontos.size() == 2)
-                {
-                    String url = getRequestedUrl(listaPontos.get(0), listaPontos.get(1));
-                    TaskRequestDirections taskRequestDirections = new TaskRequestDirections();
-                    taskRequestDirections.execute(url);
-                }
-            }
-        });
     }
 
     //Solicita URL Para Marcar a Rota Entre os Pontos
