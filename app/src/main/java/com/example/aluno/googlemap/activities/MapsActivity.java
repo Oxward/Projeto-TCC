@@ -135,7 +135,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     //Rotas ao pressionar os botões de demonstração
-    protected void buttonPress(View view)
+    public void buttonPress(View view)
     {
         switch ( view.getId() )
         {
