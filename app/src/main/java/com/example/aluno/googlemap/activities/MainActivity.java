@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity
                     Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                     startActivity(intent);
                 } catch (Exception e) {
-                    Log.d("Exceção", "" + e.getMessage());
+                    Log.d(TAG, "" + e.getMessage());
                 }
                 break;
 
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity
                     Intent intent = new Intent(MainActivity.this, Lists.class);
                     startActivity(intent);
                 } catch (Exception e) {
-                    Log.d("Exceção", "" + e.getMessage());
+                    Log.d(TAG, "" + e.getMessage());
                 }
                 break;
 

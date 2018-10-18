@@ -3,7 +3,6 @@ package com.example.aluno.googlemap.activities;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -13,9 +12,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.example.aluno.googlemap.DirectionsParser;
 import com.example.aluno.googlemap.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,18 +23,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 {
@@ -110,7 +96,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      CTF ->  -6.785664, -43.041863
      */
 
-
     //Cria um Menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
@@ -150,7 +135,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     //Rotas ao pressionar os botões de demonstração
-    public void buttonPress(View view)
+    protected void buttonPress(View view)
     {
         switch ( view.getId() )
         {
@@ -204,17 +189,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //GroundOverlayOptions homeOverlay = new GroundOverlayOptions()
         //                .image(BitmapDescriptorFactory.fromResource(R.drawable.android)).position(ctf, 100);
         //        //mMap.addGroundOverlay(homeOverlay);
-        //        //setMapLongClick(mMap);
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults)
     {
-        switch(requestCode)
-        {
+        switch (requestCode) {
             case REQUEST_LOCATION_PERMISSION:
-                if(grantResults.length > 0  &&  grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     enableMyLocation();
                     break;
                 }
@@ -356,7 +338,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          onibus2.add( new LatLng(-6.785455, -43.042095 ));//portao ctf
         onibus2.add( new LatLng(-6.785664, -43.041863 ));//CTF
         /*
-         *
          * CTF -> -6.785664, -43.041863 +
          *   PORTAO CTF -> -6.785455, -43.042095+
          *   DROGARIA -> -6.777718, -43.033510+
@@ -395,6 +376,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
          *   PORTAO CTF -> -6.785455, -43.042095
          * CTF -> -6.785664, -43.041863 +
          */
+
         b2.add( new LatLng(-6.785664, -43.041863) );
         b2.add( new LatLng(-6.777723, -43.031713) );
         b2.add( new LatLng(-6.781160, -43.022939) );
@@ -529,67 +511,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addPolyline( linha.color(Color.BLUE).width(4f));
     }
 
-    //Solicita URL Para Marcar a Rota Entre os Pontos
-    private String getRequestedUrl(LatLng orig, LatLng dest)
-    {
-        String origem = "origin="+orig.latitude+ ","+orig.longitude;  //LatLong ponto de origem
-        String destino = "destination="+dest.latitude+ ","+dest.longitude; //LatLong ponto de destino
-        String sensor = "sensor=false";
-        String mode = "mode=driving";
-        String param = origem+ "&" +destino+ "&" +sensor+ "&" +mode;
-        String output = "json";
-        String url = "https://maps.googleapis.com/maps/api/directions/" +output+ "?" +param;
-        return url;
-    }
-
-    //Traça uma Rota Entre os Pontos Demarcados
-    private String requestDirections(String reqUrl)
-    {
-        String respString = "";
-        InputStream inputStream = null;
-        HttpURLConnection httpURLConnection = null;
-        try
-        {
-            URL url = new URL(reqUrl);
-            httpURLConnection = (HttpURLConnection) url.openConnection();
-            httpURLConnection.connect();
-
-            //resultado do requerimento
-            inputStream = httpURLConnection.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-
-            StringBuffer stringBuffer = new StringBuffer();
-            String linha = "";
-
-            while( (linha = bufferedReader.readLine()) != null)
-            {
-                stringBuffer.append(linha);
-            }
-
-            respString = stringBuffer.toString();
-            bufferedReader.close();
-            inputStreamReader.close();
-
-        }catch(IOException e)
-        {
-            e.getStackTrace();
-        }finally
-        {
-            if(inputStream != null)
-                try
-                {
-                    inputStream.close();
-                }catch(IOException e)
-                {
-                    e.getStackTrace();
-                }
-
-            httpURLConnection.disconnect();
-        }
-        return respString;
-    }
-
     //Ativa a Localização Atual(GPS)
     private void enableMyLocation()
     {
@@ -604,84 +525,4 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-
-    //CLASSES PARA TRAÇAR AS ROTAS(Utiliza Internet, estilo GoogleMaps)
-    public class TaskRequestDirections extends AsyncTask<String, Void, String>
-    {
-
-        @Override
-        protected String doInBackground(String... strings)
-        {
-            String responseString = "";
-            responseString = requestDirections(strings[0]);
-
-            return responseString;
-        }
-
-        @Override
-        protected void onPostExecute(String s)
-        {
-            super.onPostExecute(s);
-            //passa o json
-            TaskParser taskParser = new TaskParser();
-            taskParser.execute(s);
-        }
-    }
-
-    public class TaskParser extends AsyncTask<String, Void, List<List<HashMap<String, String>>> >
-    {
-
-        @Override
-        protected List<List<HashMap<String, String>>> doInBackground(String... strings)
-        {
-            JSONObject jsonObject = null;
-            List<List<HashMap<String, String>>> routes = null;
-            try
-            {
-                jsonObject = new JSONObject(strings[0]);
-                DirectionsParser directionsParser = new DirectionsParser();
-                routes = directionsParser.parse(jsonObject);
-            }catch(JSONException e)
-            {
-                e.getStackTrace();
-            }
-
-            return routes;
-        }
-
-        @Override
-        protected void onPostExecute(List<List<HashMap<String, String>>> lists)
-        {
-            //mostra as rotas no mapa
-            ArrayList pontos = null;
-            PolylineOptions polylineOptions = null;
-
-            for(List<HashMap<String, String>> caminho : lists)
-            {
-                pontos = new ArrayList();
-                polylineOptions = new PolylineOptions();
-
-                for(HashMap<String, String> ponto : caminho)
-                {
-                    double lat = Double.parseDouble(ponto.get("lat"));
-                    double lon = Double.parseDouble(ponto.get("lon"));
-
-                    pontos.add(new LatLng(lat,lon));
-                }
-
-                polylineOptions.addAll(pontos);
-                polylineOptions.width(15);
-                polylineOptions.color(Color.GREEN);
-                polylineOptions.geodesic(true);
-            }
-
-            if(polylineOptions != null)
-            {
-                mMap.addPolyline(polylineOptions);
-            } else
-            {
-                Toast.makeText(getApplicationContext(), "Rota não encontrada!", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
 }
