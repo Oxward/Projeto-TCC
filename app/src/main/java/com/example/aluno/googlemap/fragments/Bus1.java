@@ -1,6 +1,8 @@
 package com.example.aluno.googlemap.fragments;
 
-public class Bus1 {
+import android.support.v4.app.Fragment;
+
+public class Bus1 extends Fragment {
 
     private static final String TAG = "Bus1";
 
