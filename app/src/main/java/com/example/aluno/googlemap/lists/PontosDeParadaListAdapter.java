@@ -16,7 +16,7 @@ import com.example.aluno.googlemap.classes.PontosDeParada;
 
 import java.util.ArrayList;
 
-class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
+public class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
 {
     private static final String TAG = "PontosDeParadaListAdapt";
     private Context mContext;
@@ -29,7 +29,7 @@ class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
         TextView parada;
     }
 
-    PontosDeParadaListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<PontosDeParada> objects)
+    public PontosDeParadaListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<PontosDeParada> objects)
     {
         super(context, resource, objects);
         mContext = context;
