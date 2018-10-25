@@ -15,7 +15,6 @@ import android.util.Log;
 import android.view.MenuItem;
 
 import com.example.aluno.googlemap.R;
-import com.example.aluno.googlemap.lists.Lists;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -95,7 +94,7 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.nav_schedule:
                 try {
-                    Intent intent = new Intent(MainActivity.this, Lists.class);
+                    Intent intent = new Intent(MainActivity.this, IntinerarioActivity.class);
                     startActivity(intent);
                 } catch (Exception e) {
                     Log.d(TAG, "" + e.getMessage());
