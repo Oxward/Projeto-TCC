@@ -11,11 +11,11 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/ic_launcher"
         android:label="PassaAonde?"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:fullBackupContent="@xml/backup_descriptor"
         android:theme="@style/AppTheme">
 
         <!--
@@ -32,8 +32,7 @@
 
         <activity
             android:name=".lists.Lists"
-            android:label="@string/title_activity_maps">
-        </activity>
+            android:label="@string/title_activity_maps"></activity>
         <!-- <activity android:name=".lists.Lists"></activity> -->
         <activity
             android:name=".activities.MainActivity"
@@ -41,12 +40,17 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".activities.MapsActivity"
             android:label="Rotas"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.IntinerarioActivity"
+            android:label="@string/title_activity_intinerario"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -8,9 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.example.aluno.googlemap.R;
@@ -95,44 +92,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      PROCURADORIA FEDERAL -> -6.777723, -43.031713
      CTF ->  -6.785664, -43.041863
      */
-
-    //Cria um Menu
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    //Menu que contém as rotas de cada Ônibus
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        switch (item.getItemId())
-        {
-            case R.id.bus1:
-                mMap.clear();
-                rotasBus1();
-                return true;
-
-            case R.id.bus2:
-                mMap.clear();
-                rotasBus2();
-                return true;
-
-            case R.id.bus3:
-                mMap.clear();
-                rotasBus3();
-                return true;
-
-            case R.id.limpaRota:
-                mMap.clear();
-                return true;
-
-            default: return super.onOptionsItemSelected(item);
-        }
-    }
 
     //Rotas ao pressionar os botões de demonstração
     public void buttonPress(View view)
