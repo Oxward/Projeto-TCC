@@ -37,7 +37,6 @@ public class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
         mResource = resource;
     }
 
-
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {

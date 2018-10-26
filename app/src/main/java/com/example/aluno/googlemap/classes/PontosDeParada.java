@@ -74,6 +74,14 @@ public class PontosDeParada
         this.idPdP = idPdP;
     }
 
+    public String getPlacaOnibus() {
+        return placaOnibus;
+    }
+
+    public void setPlacaOnibus(String placaOnibus) {
+        this.placaOnibus = placaOnibus;
+    }
+
     public byte getTurnoPdP() {
         return turnoPdP;
     }

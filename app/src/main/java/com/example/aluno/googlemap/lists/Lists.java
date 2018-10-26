@@ -32,8 +32,7 @@ public class Lists extends AppCompatActivity {
         PontosDeParada pdp = new PontosDeParada("06:00", "CTF");
         PontosDeParada pdp1 = new PontosDeParada("06:10", "Posto");
         PontosDeParada pdp2 = new PontosDeParada("06:20", "Sei lá");
-        PontosDeParada pdp3 = new PontosDeParada("06:30", "No Carai");
-        */
+        PontosDeParada pdp3 = new PontosDeParada("06:30", "No Carai");*/
 
         List<PontosDeParada> mList = new ArrayList<>(new Pontos_ViewModel(getApplication()).getAllPoints());
         Log.d(TAG, "onCreate: mList: " + mList.size());
