@@ -16,6 +16,10 @@ public class PontosDeParada
     private int idPdP;
 
     @NonNull
+    @ColumnInfo(name = "placaBusParada", typeAffinity = ColumnInfo.TEXT)
+    private String placaOnibus;
+
+    @NonNull
     @ColumnInfo(name = "turnoParada", typeAffinity = ColumnInfo.INTEGER)
     private byte turnoPdP;
 
@@ -53,8 +57,9 @@ public class PontosDeParada
     }
 
     @Ignore
-    public PontosDeParada(byte turnoPdP, String horaPdP, String localPdP, double latParada, double longPdP) {
+    public PontosDeParada(byte turnoPdP, String placaOnibus, String horaPdP, String localPdP, double latParada, double longPdP) {
         this.turnoPdP = turnoPdP;
+        this.placaOnibus = placaOnibus;
         this.horaPdP = horaPdP;
         this.localPdP = localPdP;
         this.latParada = latParada;
@@ -111,19 +116,19 @@ public class PontosDeParada
 
     public static PontosDeParada[] populateDB() {
         return new PontosDeParada[]{
-                new PontosDeParada((byte) 1, "CTF", "07:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Procuradoria Federal", "08:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Freitas", "09:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Educandário", "10:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Paraíba", "11:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Antiga Yamaha", "12:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Hotel Pousada", "13:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Rodoviária nova", "14:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Posto R. Sá", "15:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "FM", "16:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Agespisa", "17:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "Procuradoria Federal", "18:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "CTF", "19:30", -6.777723, -43.031713)
+                new PontosDeParada((byte) 1, "OHH-3332", "CTF", "07:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Procuradoria Federal", "08:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Freitas", "09:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Educandário", "10:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Paraíba", "11:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Antiga Yamaha", "12:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Hotel Pousada", "13:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Rodoviária nova", "14:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Posto R. Sá", "15:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "FM", "16:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Agespisa", "17:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "Procuradoria Federal", "18:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OHH-3332", "CTF", "19:30", -6.777723, -43.031713)
         };
         //Bus 2
     }

@@ -15,6 +15,7 @@ import com.example.aluno.googlemap.R;
 import com.example.aluno.googlemap.classes.PontosDeParada;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
 {
@@ -29,7 +30,7 @@ public class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
         TextView parada;
     }
 
-    public PontosDeParadaListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<PontosDeParada> objects)
+    PontosDeParadaListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<PontosDeParada> objects)
     {
         super(context, resource, objects);
         mContext = context;
@@ -41,8 +42,8 @@ public class PontosDeParadaListAdapter extends ArrayAdapter<PontosDeParada>
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //Informações dos pontos
-        String hora = getItem(position).getHoraPdP();
-        String parada = getItem(position).getLocalPdP();
+        String hora = Objects.requireNonNull(getItem(position)).getHoraPdP();
+        String parada = Objects.requireNonNull(getItem(position)).getLocalPdP();
 
         //Cria um objeto ponto de parada
         PontosDeParada pontosDeParada = new PontosDeParada(hora, parada);

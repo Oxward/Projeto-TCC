@@ -48,7 +48,7 @@ public abstract class ApplicationDatabase extends RoomDatabase {
                             Log.d(TAG, "onOpen: Populou Database");
                         });
                     }
-                }).allowMainThreadQueries().build(); //.fallBackToDestructiveMigration()
+                }).fallbackToDestructiveMigration().allowMainThreadQueries().build();
     }
 
     private static volatile ApplicationDatabase INSTANCE;

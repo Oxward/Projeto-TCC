@@ -21,16 +21,9 @@ public class Bus1 extends Fragment {
         View view = inflater.inflate(R.layout.activity_list_view, container, false);
 
         ListView listsView = view.findViewById(R.id.list_view);
-        listsView.addHeaderView(container);
+        ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header, listsView, false);
+        listsView.addHeaderView(viewGroup);
 
-        /*
-        List<PontosDeParada> mList = new ArrayList<>(new Pontos_ViewModel(this).getAllPoints());
-        Log.d(TAG, "onCreate: mList: " + mList.size());
-
-        PontosDeParadaListAdapter arrayAdapter =
-                new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, (ArrayList<PontosDeParada>) mList);
-        listsView.setAdapter(arrayAdapter);
-        */
         return view;
     }
 }

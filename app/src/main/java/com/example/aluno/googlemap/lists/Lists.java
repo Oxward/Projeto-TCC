@@ -28,28 +28,25 @@ public class Lists extends AppCompatActivity {
         lists.addHeaderView(viewGroup);
 
         //Adicionando pontos de parada
-        /*PontosDeParada pdp = new PontosDeParada("06:00", "CTF");
+        /*
+        PontosDeParada pdp = new PontosDeParada("06:00", "CTF");
         PontosDeParada pdp1 = new PontosDeParada("06:10", "Posto");
         PontosDeParada pdp2 = new PontosDeParada("06:20", "Sei lá");
-        PontosDeParada pdp3 = new PontosDeParada("06:30", "No Carai");*/
+        PontosDeParada pdp3 = new PontosDeParada("06:30", "No Carai");
+        */
 
         List<PontosDeParada> mList = new ArrayList<>(new Pontos_ViewModel(getApplication()).getAllPoints());
         Log.d(TAG, "onCreate: mList: " + mList.size());
 
-        /*mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
-        mList.add(pdp3);       mList.add(pdp);        mList.add(pdp1);
-        mList.add(pdp2);       mList.add(pdp3);       mList.add(pdp);
-        mList.add(pdp1);       mList.add(pdp2);       mList.add(pdp3);
-        mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
-        mList.add(pdp3);       mList.add(pdp);        mList.add(pdp1);
-        mList.add(pdp2);       mList.add(pdp3);       mList.add(pdp);
-        mList.add(pdp1);       mList.add(pdp2);       mList.add(pdp3);
-        mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
-        mList.add(pdp3);       mList.add(pdp);        mList.add(pdp1);
-        mList.add(pdp2);       mList.add(pdp3);       mList.add(pdp);
-        mList.add(pdp1);       mList.add(pdp2);       mList.add(pdp3);
-        mList.add(pdp);        mList.add(pdp1);       mList.add(pdp2);
-        mList.add(pdp3);*/
+        /*
+        mList.add(pdp);mList.add(pdp1);mList.add(pdp2);mList.add(pdp3);mList.add(pdp);mList.add(pdp1);
+        mList.add(pdp);mList.add(pdp1);mList.add(pdp2);mList.add(pdp3);mList.add(pdp);mList.add(pdp1);
+        mList.add(pdp);mList.add(pdp1);mList.add(pdp2);mList.add(pdp3);mList.add(pdp);mList.add(pdp1);
+        mList.add(pdp2);mList.add(pdp3);mList.add(pdp);mList.add(pdp1);mList.add(pdp2);mList.add(pdp3);
+        mList.add(pdp2);mList.add(pdp3);mList.add(pdp);mList.add(pdp1);mList.add(pdp2);mList.add(pdp3);
+        mList.add(pdp2);mList.add(pdp3);mList.add(pdp);mList.add(pdp1);mList.add(pdp2);mList.add(pdp3);
+        mList.add(pdp);mList.add(pdp1);mList.add(pdp2);mList.add(pdp3);
+        */
 
         PontosDeParadaListAdapter arrayAdapter =
                 new PontosDeParadaListAdapter(this, R.layout.adapter_view_layout, (ArrayList<PontosDeParada>) mList);

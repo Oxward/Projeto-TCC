@@ -20,10 +20,16 @@ public class Pontos_ViewModel extends AndroidViewModel {
         pontosDeParadaList = new ArrayList<>();
     }
 
-    public Pontos_ViewModel(@NonNull Application application, String turn) {
+    public Pontos_ViewModel(@NonNull Application application, String turno) {
         super(application);
         pontosRepository = new Pontos_Repository(application);
-        pontosDeParadaList = pontosRepository.getPdPByTurn(turn);
+        pontosDeParadaList = getPdPByTurn(turno);
+    }
+
+    public Pontos_ViewModel(Application application, String turno, String placa) {
+        super(application);
+        pontosRepository = new Pontos_Repository(application);
+        pontosDeParadaList = getPdPByTurnPlaca(turno, placa);
     }
 
     public List<PontosDeParada> getAllPoints() {
@@ -33,6 +39,10 @@ public class Pontos_ViewModel extends AndroidViewModel {
 
     public List<PontosDeParada> getPdPByTurn(String turn) {
         return pontosRepository.getPdPByTurn(turn);
+    }
+
+    public List<PontosDeParada> getPdPByTurnPlaca(String turn, String placa) {
+        return pontosRepository.getPdPByTurnPlaca(turn, placa);
     }
 
     public void insertPdP(PontosDeParada... pontosDeParada) {

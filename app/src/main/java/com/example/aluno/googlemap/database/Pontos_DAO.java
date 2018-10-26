@@ -25,6 +25,9 @@ public interface Pontos_DAO {
     @Query("SELECT * FROM pontoDeParada WHERE turnoParada = :turno")
     List<PontosDeParada> selectPdPTurno(String turno);
 
+    @Query("SELECT * FROM pontoDeParada pdp INNER JOIN bus WHERE pdp.turnoParada = :turno AND bus.placaBus = :placa")
+    List<PontosDeParada> selectPdPTurnoPlaca(String turno, String placa);
+
     @Query("DELETE FROM pontoDeParada")
     void deleteAllPdP();
 
