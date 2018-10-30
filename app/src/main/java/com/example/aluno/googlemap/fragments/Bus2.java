@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.aluno.googlemap.R;
+import com.example.aluno.googlemap.adapter.ListaAdapter;
+import com.example.aluno.googlemap.classes.PontosDeParada;
+
+import java.util.ArrayList;
 
 public class Bus2 extends Fragment {
 
@@ -23,6 +27,49 @@ public class Bus2 extends Fragment {
         ListView listsView = view.findViewById(R.id.list_view);
         ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header, listsView, false);
         listsView.addHeaderView(viewGroup);
+
+        ArrayList<PontosDeParada> list = new ArrayList<>();
+
+        list.add(new PontosDeParada("12:30", "CTF"));
+        list.add(new PontosDeParada("13:30", "Ali"));
+        list.add(new PontosDeParada("14:30", "Aqui"));
+        list.add(new PontosDeParada("15:30", "Freitas"));
+        list.add(new PontosDeParada("16:30", "Rádio"));
+        list.add(new PontosDeParada("17:30", "Terra"));
+        list.add(new PontosDeParada("18:30", "Céu"));
+        list.add(new PontosDeParada("19:30", "Outro Lado"));
+        list.add(new PontosDeParada("20:30", "Bolsonaro"));
+        list.add(new PontosDeParada("12:30", "CTF"));
+        list.add(new PontosDeParada("13:30", "Ali"));
+        list.add(new PontosDeParada("14:30", "Aqui"));
+        list.add(new PontosDeParada("15:30", "Freitas"));
+        list.add(new PontosDeParada("16:30", "Rádio"));
+        list.add(new PontosDeParada("17:30", "Terra"));
+        list.add(new PontosDeParada("18:30", "Céu"));
+        list.add(new PontosDeParada("19:30", "Outro Lado"));
+        list.add(new PontosDeParada("20:30", "Bolsonaro"));
+        list.add(new PontosDeParada("12:30", "CTF"));
+        list.add(new PontosDeParada("13:30", "Ali"));
+        list.add(new PontosDeParada("14:30", "Aqui"));
+        list.add(new PontosDeParada("15:30", "Freitas"));
+        list.add(new PontosDeParada("16:30", "Rádio"));
+        list.add(new PontosDeParada("17:30", "Terra"));
+        list.add(new PontosDeParada("18:30", "Céu"));
+        list.add(new PontosDeParada("19:30", "Outro Lado"));
+        list.add(new PontosDeParada("20:30", "Bolsonaro"));
+        list.add(new PontosDeParada("12:30", "CTF"));
+        list.add(new PontosDeParada("13:30", "Ali"));
+        list.add(new PontosDeParada("14:30", "Aqui"));
+        list.add(new PontosDeParada("15:30", "Freitas"));
+        list.add(new PontosDeParada("16:30", "Rádio"));
+        list.add(new PontosDeParada("17:30", "Terra"));
+        list.add(new PontosDeParada("18:30", "Céu"));
+        list.add(new PontosDeParada("19:30", "Outro Lado"));
+        list.add(new PontosDeParada("20:30", "Bolsonaro"));
+
+
+        ListaAdapter adapter = new ListaAdapter(getContext(), R.layout.adapter_view_layout, list);
+        listsView.setAdapter(adapter);
 
         return view;
     }

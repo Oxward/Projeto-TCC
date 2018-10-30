@@ -21,9 +21,9 @@ public class Pontos_Repository {
     }
 
     public List<PontosDeParada> getAllPdP() {
-        new selectAsyncTask(pontos_dao).execute();
-        Log.d("getAllPdP", "getAllPdP: pDPlist size: " + pontosDeParadaList.size());
-        return pontosDeParadaList;
+        //new selectAsyncTask(pontos_dao).execute();
+        //Log.d("getAllPdP", "getAllPdP: pDPlist size: " + pontosDeParadaList.size());
+        return pontos_dao.selectAllPdP();
     }
 
     public List<PontosDeParada> getPdPByTurn(String turn) {
