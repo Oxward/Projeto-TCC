@@ -1,12 +1,10 @@
 <resources>
     <string name="app_name">PassaAonde?</string>
-    <string name="title_activity_maps">Intinerário</string>
-    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_main">PassaAonde?</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="tab_text_3">Tab 3</string>
     <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
     <string name="bus_1">Ônibus 1</string>
     <string name="bus_2">Ônibus 2</string>
     <string name="bus_3">Ônibus 3</string>
@@ -21,5 +19,5 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="rotas">Rotas</string>
     <string name="horarios">Horários</string>
-    <string name="title_activity_intinerario">IntinerarioActivity</string>
+    <string name="title_activity_intinerario">Intinerário</string>
 </resources>

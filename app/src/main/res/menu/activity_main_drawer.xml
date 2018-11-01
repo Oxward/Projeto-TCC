@@ -5,10 +5,6 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_routes"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/rotas" />
-        <item
             android:id="@+id/nav_schedule"
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/horarios" />
