@@ -10,7 +10,6 @@
 
     <group
         android:id="@+id/teste_group"
-        android:checkableBehavior="single"
         android:menuCategory="alternative"
         android:visible="true">
 
