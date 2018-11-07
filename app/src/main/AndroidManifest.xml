@@ -30,7 +30,7 @@
 
         <activity
             android:name=".activities.MainActivity"
-            android:label="Vai tomar no cu"
+            android:label="@string/title_activity_main"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,7 +40,7 @@
         </activity>
         <activity
             android:name=".activities.IntinerarioActivity"
-            android:label="Intinerário"
+            android:label="@string/title_activity_intinerario"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
 

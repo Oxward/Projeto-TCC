@@ -6,5 +6,31 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
+
+    <group
+        android:id="@+id/teste_group"
+        android:checkableBehavior="single"
+        android:menuCategory="alternative"
+        android:visible="true">
+
+        <item
+            android:id="@+id/B1"
+            android:orderInCategory="200"
+            android:title="B1"
+            app:showAsAction="ifRoom" />
+
+        <item
+            android:id="@+id/B2"
+            android:orderInCategory="300"
+            android:title="B2"
+            app:showAsAction="ifRoom" />
+
+        <item
+            android:id="@+id/B3"
+            android:orderInCategory="400"
+            android:title="B3"
+            app:showAsAction="ifRoom" />
+
+    </group>
 </menu>
