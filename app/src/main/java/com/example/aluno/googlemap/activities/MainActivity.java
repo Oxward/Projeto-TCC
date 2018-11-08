@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -117,9 +118,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        ViewPager viewPager = findViewById(R.id.vp_pages);
         mMapFragmentAdapter = new MapFragmentAdapter(getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.container2);
         setupViewPager(viewPager);
+
+        TabLayout tabLayout = findViewById(R.id.tbl_pages);
+        tabLayout.setupWithViewPager(viewPager);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         /*SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

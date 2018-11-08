@@ -3,6 +3,7 @@ package com.example.aluno.googlemap.fragments;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -49,6 +50,12 @@ public class MapFragmentB3 extends SupportMapFragment implements OnMapReadyCallb
      */
 
     @Override
+    public void onActivityCreated(Bundle bundle) {
+        super.onActivityCreated(bundle);
+        getMapAsync(this);
+    }
+
+    @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         enableMyLocation();
@@ -56,7 +63,7 @@ public class MapFragmentB3 extends SupportMapFragment implements OnMapReadyCallb
 
         LatLng ctf = new LatLng(-6.785664, -43.041863);
         mMap.addMarker(new MarkerOptions().position(ctf).title("Marcador no CTF"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ctf, 15f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ctf, 13f));
 
         rotasBus3();
     }

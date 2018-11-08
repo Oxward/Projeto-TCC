@@ -62,7 +62,7 @@ public class MapFragmentB2 extends SupportMapFragment implements OnMapReadyCallb
 
         LatLng ctf = new LatLng(-6.785664, -43.041863);
         mMap.addMarker(new MarkerOptions().position(ctf).title("Marcador no CTF"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ctf, 15f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ctf, 13f));
 
         rotasBus2();
     }

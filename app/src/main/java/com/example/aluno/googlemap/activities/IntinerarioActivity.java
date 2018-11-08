@@ -35,38 +35,6 @@ public class IntinerarioActivity extends AppCompatActivity {
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                mViewPager.setCurrentItem(tab.getPosition());
-
-                switch (tab.getPosition()) {
-                    case 0:
-                        Log.d(TAG, "onTabSelected: Tab 1");
-                        break;
-
-                    case 1:
-                        Log.d(TAG, "onTabSelected: Tab 2");
-                        break;
-
-                    case 2:
-                        Log.d(TAG, "onTabSelected: Tab 3");
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -76,3 +44,35 @@ public class IntinerarioActivity extends AppCompatActivity {
         viewPager.setAdapter(mSectionPageAdapter);
     }
 }
+
+/*
+tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+@Override
+public void onTabSelected(TabLayout.Tab tab) {
+        mViewPager.setCurrentItem(tab.getPosition());
+
+        switch (tab.getPosition()) {
+        case 0:
+        Log.d(TAG, "onTabSelected: Tab 1");
+        break;
+
+        case 1:
+        Log.d(TAG, "onTabSelected: Tab 2");
+        break;
+
+        case 2:
+        Log.d(TAG, "onTabSelected: Tab 3");
+        break;
+        }
+        }
+
+@Override
+public void onTabUnselected(TabLayout.Tab tab) {
+
+        }
+
+@Override
+public void onTabReselected(TabLayout.Tab tab) {
+
+        }
+        });*/

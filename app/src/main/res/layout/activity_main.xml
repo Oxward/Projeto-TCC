@@ -6,61 +6,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:openDrawer="start">
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 
     <include
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/mapBus1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bus_1" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/mapBus2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bus_2" />
-
-            <android.support.design.widget.TabItem
-                android:id="@+id/mapBus3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/bus_3" />
-
-        </android.support.design.widget.TabLayout>
-
-        <android.support.design.widget.NavigationView
-            android:id="@+id/nav_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="start"
-            android:fitsSystemWindows="true"
-            app:headerLayout="@layout/nav_header_main"
-            app:menu="@menu/activity_main_drawer" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
 
 </android.support.v4.widget.DrawerLayout>
