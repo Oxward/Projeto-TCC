@@ -1,15 +1,11 @@
 package com.example.aluno.googlemap.activities;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -18,41 +14,37 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.example.aluno.googlemap.R;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.maps.model.PolylineOptions;
-
-import java.util.ArrayList;
+import com.example.aluno.googlemap.fragments.MapFragmentAdapter;
+import com.example.aluno.googlemap.fragments.MapFragmentB1;
+import com.example.aluno.googlemap.fragments.MapFragmentB2;
+import com.example.aluno.googlemap.fragments.MapFragmentB3;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = "MainActivity";
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
-    private final String[] textMarcadoresB1 =
+    /*private final String[] textMarcadoresB1 =
             new String[]{"CTF", "Procuradoria Federal", "Agespisa", "Posto R Sá", "Posto Fiscal dos Pontões",
                     "Posto Fiscal do Barão", "Posto de Combustível", "Hospital do Barão", "Posto de Combustível",
-                    "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa", "Procuradoria Federal", "CTF"};
-    private final String[] textMarcadoresB2 =
+                    "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa", "Procuradoria Federal", "CTF"};*/
+
+    /*private final String[] textMarcadoresB2 =
             new String[]{"CTF", "Procuradoria Federal", "Fartote Freitas", "Educandário", "Paraíba", "Antiga Yamaha",
                     "Hotel Rio Parnaíba", "Rodoviária Nova", "Posto R Sá", "Rádio FM", "Agespisa",
-                    "Procuradoria Federal", "CTF"};
-    private final String[] textMarcadoresB3 =
+                    "Procuradoria Federal", "CTF"};*/
+
+    /*private final String[] textMarcadoresB3 =
             new String[]{"CTF", "Procuradoria Federal", "Fartote Freitas", "Agespisa", "Rádio FM", "Posto R de Sá", "Rodoviária Nova",
                     "Posto Fiscal dos Pontões", "Barão", "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa",
-                    "Procuradoria Federal", "CTF"};
-    private GoogleMap mMap;
-    private ArrayList<LatLng> onibus1 = new ArrayList<>();
+                    "Procuradoria Federal", "CTF"};*/
+
+    //private GoogleMap mMap;
+    /*private ArrayList<LatLng> onibus1 = new ArrayList<>();*/
     /**
      * CTF -> -6.785664, -43.041863
      * PROCURADORIA FEDERAL-> -6.777723, -43.031713
@@ -70,7 +62,7 @@ public class MainActivity extends AppCompatActivity
      * PROCURADORIA FEDERAL -> -6.777723, -43.031713
      * CTF -> -6.785664, -43.041863
      */
-    private ArrayList<LatLng> onibus2 = new ArrayList<>();
+    /* private ArrayList<LatLng> onibus2 = new ArrayList<>();*/
     /**
      * CTF -> -6.785664, -43.041863
      * PROCURADORIA FEDERAL -> -6.777723, -43.031713
@@ -86,8 +78,7 @@ public class MainActivity extends AppCompatActivity
      * PROCURADORIA FEDERAL -> -6.777723, -43.031713
      * CTF -> -6.785664, -43.041863
      */
-    private ArrayList<LatLng> onibus3 = new ArrayList<>();
-
+    /*private ArrayList<LatLng> onibus3 = new ArrayList<>();*/
     /**
      * CTF ->  -6.785664, -43.041863
      * PROCURADORIA FEDERAL -> -6.777723, -43.031713
@@ -105,6 +96,8 @@ public class MainActivity extends AppCompatActivity
      * PROCURADORIA FEDERAL -> -6.777723, -43.031713
      * CTF ->  -6.785664, -43.041863
      */
+
+    private MapFragmentAdapter mMapFragmentAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,14 +117,25 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        mMapFragmentAdapter = new MapFragmentAdapter(getSupportFragmentManager());
+        ViewPager viewPager = findViewById(R.id.container2);
+        setupViewPager(viewPager);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+        /*SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        mapFragment.getMapAsync(this);*/
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        mMapFragmentAdapter.addFragment(new MapFragmentB1(), "Bus1");
+        mMapFragmentAdapter.addFragment(new MapFragmentB2(), "Bus2");
+        mMapFragmentAdapter.addFragment(new MapFragmentB3(), "Bus3");
+        viewPager.setAdapter(mMapFragmentAdapter);
     }
 
 
-    @Override
+    /*@Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         enableMyLocation();
@@ -141,12 +145,12 @@ public class MainActivity extends AppCompatActivity
         mMap.addMarker(new MarkerOptions().position(ctf).title("Marcador no CTF"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ctf, 15f));
 
-        /*GroundOverlayOptions homeOverlay = new GroundOverlayOptions()
+        *//*GroundOverlayOptions homeOverlay = new GroundOverlayOptions()
                         .image(BitmapDescriptorFactory.fromResource(R.drawable.android)).position(ctf, 100);
-                mMap.addGroundOverlay(homeOverlay);*/
-    }
+                mMap.addGroundOverlay(homeOverlay);*//*
+    }*/
 
-    @Override
+    /*@Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         switch (requestCode) {
             case REQUEST_LOCATION_PERMISSION:
@@ -155,7 +159,7 @@ public class MainActivity extends AppCompatActivity
                     break;
                 }
         }
-    }
+    }*/
 
 
     @Override
@@ -234,7 +238,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     //Ativa a Localização Atual(GPS)
-    private void enableMyLocation() {
+    /*private void enableMyLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED) {
             mMap.setMyLocationEnabled(true);
@@ -242,32 +246,32 @@ public class MainActivity extends AppCompatActivity
             ActivityCompat.requestPermissions(this, new String[]
                     {Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION_PERMISSION);
         }
-    }
+    }*/
 
     //Rotas ao pressionar os botões de demonstração
-    public void buttonPress(View view) {
+    /*public void buttonPress(View view) {
         switch (view.getId()) {
             case R.id.btBus1:
                 mMap.clear();
-                rotasBus1();
+                //rotasBus1();
                 break;
 
             case R.id.btBus2:
                 mMap.clear();
-                rotasBus2();
+                //rotasBus2();
                 break;
 
             case R.id.btBus3:
                 mMap.clear();
-                rotasBus3();
+                //rotasBus3();
                 break;
         }
-    }
+    }*/
 
     /*
      * Traça as rotas do Primeiro Ônibus
      */
-    private void rotasBus1() {
+    /*private void rotasBus1() {
         PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
         ArrayList<LatLng> b1 = new ArrayList<>();
@@ -302,7 +306,7 @@ public class MainActivity extends AppCompatActivity
         onibus1.add(new LatLng(-6.777718, -43.033510)); //drogaria +
         onibus1.add(new LatLng(-6.785455, -43.042095)); //portao +
         onibus1.add(new LatLng(-6.785664, -43.041863)); //CTF
-        /*
+        *//*
          CTF -> -6.785664, -43.041863 +
          PROCURADORIA FEDERAL-> -6.777723, -43.031713 +
          AGESPISA -> -6.782055, -43.021958 +
@@ -318,7 +322,7 @@ public class MainActivity extends AppCompatActivity
          AGESPISA -> -6.782055, -43.021958 +
          PROCURADORIA FEDERAL -> -6.777723, -43.031713 +
          CTF -> -6.785664, -43.041863 +
-         */
+         *//*
         b1.add(new LatLng(-6.785664, -43.041863));
         b1.add(new LatLng(-6.777723, -43.031713));
         b1.add(new LatLng(-6.782055, -43.021958));
@@ -350,9 +354,9 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    /*
+    *//*
      * Traça as rotas do Segundo Ônibus
-     */
+     *//*
     private void rotasBus2() {
         PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
@@ -394,7 +398,7 @@ public class MainActivity extends AppCompatActivity
         onibus2.add(new LatLng(-6.777718, -43.033510));//drogaria
         onibus2.add(new LatLng(-6.785455, -43.042095));//portao ctf
         onibus2.add(new LatLng(-6.785664, -43.041863));//CTF
-        /*
+        *//*
          * CTF -> -6.785664, -43.041863 +
          *   PORTAO CTF -> -6.785455, -43.042095+
          *   DROGARIA -> -6.777718, -43.033510+
@@ -432,7 +436,7 @@ public class MainActivity extends AppCompatActivity
          *   DROGARIA -> -6.777718, -43.033510
          *   PORTAO CTF -> -6.785455, -43.042095
          * CTF -> -6.785664, -43.041863 +
-         */
+     *//*
 
         b2.add(new LatLng(-6.785664, -43.041863));
         b2.add(new LatLng(-6.777723, -43.031713));
@@ -463,9 +467,9 @@ public class MainActivity extends AppCompatActivity
         mMap.addPolyline(linha.color(Color.RED).width(4f));
     }
 
-    /*
+    *//*
      * Traça as rotas do Terceiro Ônibus
-     */
+     *//*
     private void rotasBus3() {
         PolylineOptions linha = new PolylineOptions(); //Desenha as linhas no mapa
         MarkerOptions mark = new MarkerOptions(); //Marcador para os pontos de parada
@@ -514,7 +518,7 @@ public class MainActivity extends AppCompatActivity
         onibus3.add(new LatLng(-6.777718, -43.033510)); //drogaria +
         onibus3.add(new LatLng(-6.785455, -43.042095)); //portao +
         onibus3.add(new LatLng(-6.785664, -43.041863)); //CTF
-        /*
+        *//*
          CTF ->  -6.785664, -43.041863 +
          PROCURADORIA FEDERAL -> -6.777723, -43.031713 +
          FREITAS -> -6.781160, -43.022939 +
@@ -530,7 +534,7 @@ public class MainActivity extends AppCompatActivity
          AGESPISA -> -6.782055, -43.021958 +
          PROCURADORIA FEDERAL -> -6.777723, -43.031713 +
          CTF ->  -6.785664, -43.041863
-         */
+         *//*
 
         b3.add(new LatLng(-6.785664, -43.041863));
         b3.add(new LatLng(-6.777723, -43.031713));
@@ -561,6 +565,6 @@ public class MainActivity extends AppCompatActivity
 
         //Adiciona o desenho do laço anterior ao mapa
         mMap.addPolyline(linha.color(Color.BLUE).width(4f));
-    }
+    }*/
 
 }

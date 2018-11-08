@@ -8,6 +8,6 @@
     tools:context=".activities.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <include layout="@layout/activity_maps" />
+    <!-- <include layout="@layout/activity_maps" /> -->
 
 </android.support.constraint.ConstraintLayout>
