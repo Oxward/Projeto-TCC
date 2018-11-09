@@ -31,7 +31,8 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/AppTheme.NoActionBar">
+            <!-- android:theme="@style/SplashTheme" -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
