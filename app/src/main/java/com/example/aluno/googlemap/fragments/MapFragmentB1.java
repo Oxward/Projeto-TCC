@@ -5,14 +5,21 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
+import com.example.aluno.googlemap.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -20,7 +27,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
 
-public class MapFragmentB1 extends SupportMapFragment implements OnMapReadyCallback {
+public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
 
     private static final String TAG = "MapFragmentB1";
     private static final int REQUEST_LOCATION_PERMISSION = 1;
@@ -30,6 +37,9 @@ public class MapFragmentB1 extends SupportMapFragment implements OnMapReadyCallb
                     "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa", "Procuradoria Federal", "CTF"};
     private GoogleMap mMap;
     private ArrayList<LatLng> onibus1 = new ArrayList<>();
+
+    private MapView mMapView;
+    private View mView;
 
     /**
      * CTF -> -6.785664, -43.041863
@@ -49,14 +59,37 @@ public class MapFragmentB1 extends SupportMapFragment implements OnMapReadyCallb
      * CTF -> -6.785664, -43.041863
      */
 
-    @Override
+    /*@Override
     public void onActivityCreated(Bundle bundle) {
         super.onActivityCreated(bundle);
-        getMapAsync(this);
+    }*/
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        mView = inflater.inflate(R.layout.activity_maps, container, false);
+        return mView;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        mMapView = mView.findViewById(R.id.map);
+        if (mMapView != null) {
+            mMapView.onCreate(null);
+            mMapView.onResume();
+            mMapView.getMapAsync(this);
+        }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        MapsInitializer.initialize(getContext());
         mMap = googleMap;
         enableMyLocation();
         Log.d(TAG, "onMapReady: Map Ready");
