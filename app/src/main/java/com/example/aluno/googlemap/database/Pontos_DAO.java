@@ -24,10 +24,10 @@ public interface Pontos_DAO {
     */
 
     @Query("SELECT * FROM pontoDeParada WHERE turnoParada = :turno")
-    List<PontosDeParada> selectPdPTurno(String turno);
+    List<PontosDeParada> selectPdPTurno(byte turno);
 
     @Query("SELECT * FROM pontoDeParada WHERE turnoParada = :turno AND placaBusParada = :placa")
-    List<PontosDeParada> selectPdPTurnoPlaca(String turno, String placa);
+    List<PontosDeParada> selectPdPTurnoPlaca(byte turno, String placa);
 
     @Query("DELETE FROM pontoDeParada")
     void deleteAllPdP();

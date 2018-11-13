@@ -57,7 +57,7 @@ public class PontosDeParada
     }
 
     @Ignore
-    public PontosDeParada(byte turnoPdP, String placaOnibus, String horaPdP, String localPdP, double latParada, double longPdP) {
+    public PontosDeParada(byte turnoPdP, String placaOnibus, String localPdP, String horaPdP, double latParada, double longPdP) {
         this.turnoPdP = turnoPdP;
         this.placaOnibus = placaOnibus;
         this.horaPdP = horaPdP;
@@ -124,19 +124,65 @@ public class PontosDeParada
 
     public static PontosDeParada[] populateDB() {
         return new PontosDeParada[]{
-                new PontosDeParada((byte) 1, "OHH-3332", "CTF", "07:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Procuradoria Federal", "08:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Freitas", "09:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Educandário", "10:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Paraíba", "11:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Antiga Yamaha", "12:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Hotel Pousada", "13:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Rodoviária nova", "14:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Posto R. Sá", "15:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "FM", "16:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Agespisa", "17:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "Procuradoria Federal", "18:30", -6.777723, -43.031713),
-                new PontosDeParada((byte) 1, "OHH-3332", "CTF", "19:30", -6.777723, -43.031713)
+                //Manhã - OEE-7903
+                new PontosDeParada((byte) 1, "OEE - 7903", "CTF", "06:50", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Procuradoria Federal", "06:51", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Freitas", "06:53", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Miguel Das Pias", "06:54", 0.0, 0.0),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Educandário", "06:55", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Antiga Yamaha", "07:01", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Rodoviária Nova", "07:06", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Posto R. Sá", "07:11", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "FM", "07:13", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Agespisa", "07:14", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Freitas", "07:15", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "Procuradoria Federal", "07:17", -6.777723, -43.031713),
+                new PontosDeParada((byte) 1, "OEE - 7903", "CTF", "07:22", -6.777723, -43.031713),
+                //Tarde - OEE-7903
+                new PontosDeParada((byte) 2, "OEE - 7903", "CTF", "13:20", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Freitas", "13:23", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Miguel Das Pias", "13:24", 0.0, 0.0),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Educandário", "13:25", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Antiga Yamaha", "13:27", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Rodoviária Nova", "13:36", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Posto R. Sá", "13:41", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "FM", "13:43", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Agespisa", "13:44", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Freitas", "13:45", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "Procuradoria Federal", "13:47", -6.777723, -43.031713),
+                new PontosDeParada((byte) 2, "OEE - 7903", "CTF", "13:51", -6.777723, -43.031713),
+                //Crepúsculo - OEE-2466
+                new PontosDeParada((byte) 3, "OEE - 2466", "CTF", "17:00", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Terreno Baldio", "17:05", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Garagem da Prefeitura", "17:07", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Posto 5", "17:10", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Diocese", "17:12", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Paraíba", "17:15", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Antiga Yamaha", "17:17", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Hotel Pousada", "17:20", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Rodoviária Nova", "17:23", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Posto R. Sá", "17:28", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Rádio FM", "17:29", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Agespisa", "17:30", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Freitas", "17:31", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "Procuradoria Federal", "17:33", -6.777723, -43.031713),
+                new PontosDeParada((byte) 3, "OEE - 2466", "CTF", "17:38", -6.777723, -43.031713),
+                //Crepúsculo - ????
+                new PontosDeParada((byte) 3, "??? - ????", "CTF", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Procuradoria Federal", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Freitas", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Agespisa", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Rádio FM", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Posto R. Sá", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Posto Fiscal de Pontões", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Posto Fiscal do Barão", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Funerária", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Posto Fiscal de Pontões", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Posto R. Sá", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Quick Sorvetes", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Freitas", "15:00", 0.0, 0.0),
+                new PontosDeParada((byte) 3, "??? - ????", "Procuradoria Federal", "15:00", 0.0, 0.0),
+
         };
         //Bus 2
     }

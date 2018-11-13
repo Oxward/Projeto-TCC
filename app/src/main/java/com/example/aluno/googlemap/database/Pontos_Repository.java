@@ -26,12 +26,12 @@ public class Pontos_Repository {
         return pontos_dao.selectAllPdP();
     }
 
-    public List<PontosDeParada> getPdPByTurn(String turn) {
-        return pontos_dao.selectPdPTurno(turn);
+    public List<PontosDeParada> getPdPByTurn(byte turno) {
+        return pontos_dao.selectPdPTurno(turno);
     }
 
-    public List<PontosDeParada> getPdPByTurnPlaca(String turn, String placa) {
-        return pontos_dao.selectPdPTurnoPlaca(turn, placa);
+    public List<PontosDeParada> getPdPByTurnPlaca(byte turno, String placa) {
+        return pontos_dao.selectPdPTurnoPlaca(turno, placa);
     }
 
     public void insertPonto(PontosDeParada... pontosDeParada) {

@@ -21,6 +21,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CustomCap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
@@ -38,7 +39,6 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
     private GoogleMap mMap;
     private ArrayList<LatLng> onibus1 = new ArrayList<>();
 
-    private MapView mMapView;
     private View mView;
 
     /**
@@ -59,10 +59,6 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
      * CTF -> -6.785664, -43.041863
      */
 
-    /*@Override
-    public void onActivityCreated(Bundle bundle) {
-        super.onActivityCreated(bundle);
-    }*/
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,7 +75,7 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mMapView = mView.findViewById(R.id.map);
+        MapView mMapView = mView.findViewById(R.id.map);
         if (mMapView != null) {
             mMapView.onCreate(null);
             mMapView.onResume();
@@ -196,7 +192,8 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
 
         //Percorre cada LatLon e desenha uma linha entre elas
         for (int i = 0; i < onibus1.size(); i++) {
-            linha.add(onibus1.get(i));
+            linha.add(onibus1.get(i))
+                    .endCap(new CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.ic_endcap), 15));
         }
         //Adiciona marcadores no mapa com a descrição do ponto de parada
         for (int i = 0; i < b1.size(); i++) {
@@ -205,7 +202,6 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
         }
 
         //Adiciona o desenho do laço anterior ao mapa
-        mMap.addPolyline(linha.color(Color.GREEN).width(4f));
-
+        mMap.addPolyline(linha.color(Color.GREEN).width(6f));
     }
 }

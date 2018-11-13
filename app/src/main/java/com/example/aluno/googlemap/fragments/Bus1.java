@@ -30,46 +30,7 @@ public class Bus1 extends Fragment {
         ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header, listsView, false);
         listsView.addHeaderView(viewGroup);
 
-        /*
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-        */
-
-        ArrayList<PontosDeParada> list = new ArrayList<>(new Pontos_ViewModel(getActivity().getApplication()).getAllPoints());
+        ArrayList<PontosDeParada> list = new ArrayList<>(new Pontos_ViewModel(getActivity().getApplication()).getPdPByTurn((byte) 1));
 
         Log.d(TAG, "onCreateView: " + list.size());
 
