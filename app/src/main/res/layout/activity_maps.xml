@@ -25,7 +25,7 @@
         tools:layout="@layout/fragment_main" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/FABmorning"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
@@ -33,9 +33,10 @@
         android:layout_marginStart="8dp"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="onButtonPress"
         app:backgroundTint="@color/yellow"
         app:fabSize="auto"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton2"
+        app:layout_constraintBottom_toTopOf="@+id/FABafternoon"
         app:layout_constraintEnd_toEndOf="@+id/map"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/map"
@@ -44,7 +45,7 @@
         app:srcCompat="@drawable/ic_morning" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/FABafternoon"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
@@ -53,9 +54,10 @@
         android:layout_marginTop="8dp"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="onButtonPress"
         app:backgroundTint="@color/orange"
         app:fabSize="auto"
-        app:layout_constraintBottom_toTopOf="@+id/floatingActionButton3"
+        app:layout_constraintBottom_toTopOf="@+id/FABevening"
         app:layout_constraintEnd_toEndOf="@+id/map"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/map"
@@ -64,7 +66,7 @@
         app:srcCompat="@drawable/ic_afternoon" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/FABevening"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginBottom="8dp"
@@ -72,6 +74,7 @@
         android:layout_marginStart="8dp"
         android:clickable="true"
         android:focusable="true"
+        android:onClick="onButtonPress"
         app:backgroundTint="@color/purple"
         app:fabSize="auto"
         app:layout_constraintBottom_toBottomOf="@+id/map"

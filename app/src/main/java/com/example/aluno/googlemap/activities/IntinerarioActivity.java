@@ -6,6 +6,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.example.aluno.googlemap.R;
 import com.example.aluno.googlemap.fragments.Bus1;
@@ -37,42 +41,44 @@ public class IntinerarioActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        new MenuInflater(this).inflate(R.menu.menu_intinerario, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.B1:
+                Toast.makeText(this, "B1", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.B2:
+                Toast.makeText(this, "B2", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.B3:
+                Toast.makeText(this, "B3", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.teste_group:
+                Toast.makeText(this, "teste_group", Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     private void setupViewPager(ViewPager viewPager) {
-        mSectionPageAdapter.addFragment(new Bus1(), "Bus1");
-        mSectionPageAdapter.addFragment(new Bus2(), "Bus2");
-        mSectionPageAdapter.addFragment(new Bus3(), "Bus3");
+        mSectionPageAdapter.addFragment(new Bus1(), "OEE-7906");
+        mSectionPageAdapter.addFragment(new Bus2(), "OEE-2466");
+        mSectionPageAdapter.addFragment(new Bus3(), "NHU-1403");
         viewPager.setAdapter(mSectionPageAdapter);
     }
 }
-
-/*
-tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-@Override
-public void onTabSelected(TabLayout.Tab tab) {
-        mViewPager.setCurrentItem(tab.getPosition());
-
-        switch (tab.getPosition()) {
-        case 0:
-        Log.d(TAG, "onTabSelected: Tab 1");
-        break;
-
-        case 1:
-        Log.d(TAG, "onTabSelected: Tab 2");
-        break;
-
-        case 2:
-        Log.d(TAG, "onTabSelected: Tab 3");
-        break;
-        }
-        }
-
-@Override
-public void onTabUnselected(TabLayout.Tab tab) {
-
-        }
-
-@Override
-public void onTabReselected(TabLayout.Tab tab) {
-
-        }
-        });*/

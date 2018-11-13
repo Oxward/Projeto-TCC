@@ -12,9 +12,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.aluno.googlemap.R;
@@ -29,9 +28,11 @@ public class MainActivity extends AppCompatActivity
     private static final String TAG = "MainActivity";
     private MapFragmentAdapter mMapFragmentAdapter;
 
+    private byte currentTab = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //setTheme(R.style.AppTheme_NoActionBar);
+        setTheme(R.style.AppTheme_NoActionBar);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -53,13 +54,24 @@ public class MainActivity extends AppCompatActivity
 
         TabLayout tabLayout = findViewById(R.id.tbl_pages);
         tabLayout.setupWithViewPager(viewPager);
-    }
 
-    private void setupViewPager(ViewPager viewPager) {
-        mMapFragmentAdapter.addFragment(new MapFragmentB1(), "Bus1");
-        mMapFragmentAdapter.addFragment(new MapFragmentB2(), "Bus2");
-        mMapFragmentAdapter.addFragment(new MapFragmentB3(), "Bus3");
-        viewPager.setAdapter(mMapFragmentAdapter);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                currentTab = (byte) tab.getPosition();
+                Toast.makeText(MainActivity.this, "Pág " + currentTab, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
     @Override
@@ -88,13 +100,7 @@ public class MainActivity extends AppCompatActivity
                 }
                 break;
 
-            case R.id.nav_manage:
-                break;
-
             case R.id.nav_share:
-                break;
-
-            case R.id.nav_send:
                 break;
         }
 
@@ -103,37 +109,64 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        new MenuInflater(this).inflate(R.menu.menu_intinerario, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
+    public void onButtonPress(View view) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (currentTab) {
+            case 0:
+                switch (view.getId()) {
+                    case R.id.FABmorning:
+                        Toast.makeText(this, "FABMorning", Toast.LENGTH_SHORT).show();
+                        break;
 
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+                    case R.id.FABafternoon:
+                        Toast.makeText(this, "FABafternoon", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.FABevening:
+                        Toast.makeText(this, "FABevening", Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 break;
 
-            case R.id.B1:
-                Toast.makeText(this, "B1", Toast.LENGTH_SHORT).show();
+            case 1:
+                switch (view.getId()) {
+                    case R.id.FABmorning:
+                        Toast.makeText(this, "FABMorning", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.FABafternoon:
+                        Toast.makeText(this, "FABafternoon", Toast.LENGTH_SHORT).show();
+                        break;
+
+                    case R.id.FABevening:
+                        Toast.makeText(this, "FABevening", Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 break;
 
-            case R.id.B2:
-                Toast.makeText(this, "B2", Toast.LENGTH_SHORT).show();
-                break;
+            case 2:
+                switch (view.getId()) {
+                    case R.id.FABmorning:
+                        Toast.makeText(this, "FABMorning", Toast.LENGTH_SHORT).show();
+                        break;
 
-            case R.id.B3:
-                Toast.makeText(this, "B3", Toast.LENGTH_SHORT).show();
-                break;
+                    case R.id.FABafternoon:
+                        Toast.makeText(this, "FABafternoon", Toast.LENGTH_SHORT).show();
+                        break;
 
-            case R.id.teste_group:
-                Toast.makeText(this, "teste_group", Toast.LENGTH_SHORT).show();
+                    case R.id.FABevening:
+                        Toast.makeText(this, "FABevening", Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 break;
         }
 
-        return super.onOptionsItemSelected(item);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        mMapFragmentAdapter.addFragment(new MapFragmentB1(), "OEE-7906");
+        mMapFragmentAdapter.addFragment(new MapFragmentB2(), "OEE-2466");
+        mMapFragmentAdapter.addFragment(new MapFragmentB3(), "NHU-1403");
+        viewPager.setAdapter(mMapFragmentAdapter);
     }
 }

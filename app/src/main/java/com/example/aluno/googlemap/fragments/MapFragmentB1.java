@@ -40,7 +40,6 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
     private ArrayList<LatLng> onibus1 = new ArrayList<>();
 
     private View mView;
-
     /**
      * CTF -> -6.785664, -43.041863
      * PROCURADORIA FEDERAL-> -6.777723, -43.031713

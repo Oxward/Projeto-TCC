@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.example.aluno.googlemap.R;
 import com.example.aluno.googlemap.adapter.ListaAdapter;
 import com.example.aluno.googlemap.classes.PontosDeParada;
+import com.example.aluno.googlemap.database.Pontos_ViewModel;
 
 import java.util.ArrayList;
 
@@ -28,45 +29,9 @@ public class Bus3 extends Fragment {
         ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header, listsView, false);
         listsView.addHeaderView(viewGroup);
 
-        ArrayList<PontosDeParada> list = new ArrayList<>();
-
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-        list.add(new PontosDeParada("12:30", "CTF"));
-        list.add(new PontosDeParada("13:30", "Ali"));
-        list.add(new PontosDeParada("14:30", "Aqui"));
-        list.add(new PontosDeParada("15:30", "Freitas"));
-        list.add(new PontosDeParada("16:30", "Rádio"));
-        list.add(new PontosDeParada("17:30", "Terra"));
-        list.add(new PontosDeParada("18:30", "Céu"));
-        list.add(new PontosDeParada("19:30", "Outro Lado"));
-        list.add(new PontosDeParada("20:30", "Bolsonaro"));
-
+        ArrayList<PontosDeParada> list = new ArrayList<>(
+                new Pontos_ViewModel(getActivity().getApplication()).getPdPByTurnPlaca((byte) 3, "NHU-1403")
+        );
 
         ListaAdapter adapter = new ListaAdapter(getContext(), R.layout.adapter_view_layout, list);
         listsView.setAdapter(adapter);

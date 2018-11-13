@@ -30,14 +30,14 @@ public class Bus1 extends Fragment {
         ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(R.layout.header, listsView, false);
         listsView.addHeaderView(viewGroup);
 
-        ArrayList<PontosDeParada> list = new ArrayList<>(new Pontos_ViewModel(getActivity().getApplication()).getPdPByTurn((byte) 1));
+        ArrayList<PontosDeParada> list = new ArrayList<>(
+                new Pontos_ViewModel(getActivity().getApplication()).getPdPByTurnPlaca((byte) 1, "OEE-7906")
+        );
 
         Log.d(TAG, "onCreateView: " + list.size());
 
         ListaAdapter adapter = new ListaAdapter(getContext(), R.layout.adapter_view_layout, list);
         listsView.setAdapter(adapter);
-
-        //new fillList().execute();
 
         return view;
     }
@@ -45,8 +45,6 @@ public class Bus1 extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
-
     }
 
     /*
