@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
 
@@ -202,5 +203,25 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
 
         //Adiciona o desenho do laço anterior ao mapa
         mMap.addPolyline(linha.color(Color.GREEN).width(6f));
+    }
+
+    public static List<LatLng> addPoints() {
+        ArrayList<LatLng> pontos = new ArrayList<>();
+
+        pontos.add(new LatLng(-6.785664, -43.041863));
+        pontos.add(new LatLng(-6.777723, -43.031713));
+        pontos.add(new LatLng(-6.781160, -43.022939));
+        pontos.add(new LatLng(-6.771816, -43.023986));
+        pontos.add(new LatLng(-6.768677, -43.019115));
+        pontos.add(new LatLng(-6.771097, -43.012466));
+        pontos.add(new LatLng(-6.774108, -43.009409));
+        pontos.add(new LatLng(-6.784655, -42.996132));
+        pontos.add(new LatLng(-6.777710, -43.009763));
+        pontos.add(new LatLng(-6.784738, -43.015697));
+        pontos.add(new LatLng(-6.782055, -43.021958));
+        pontos.add(new LatLng(-6.777723, -43.031713));
+        pontos.add(new LatLng(-6.785664, -43.041863));
+
+        return pontos;
     }
 }

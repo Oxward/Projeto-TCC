@@ -21,6 +21,9 @@ import com.example.aluno.googlemap.fragments.MapFragmentAdapter;
 import com.example.aluno.googlemap.fragments.MapFragmentB1;
 import com.example.aluno.googlemap.fragments.MapFragmentB2;
 import com.example.aluno.googlemap.fragments.MapFragmentB3;
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -111,6 +114,8 @@ public class MainActivity extends AppCompatActivity
 
     public void onButtonPress(View view) {
 
+        ArrayList<LatLng> p = new ArrayList<>();
+
         switch (currentTab) {
             case 0:
                 switch (view.getId()) {
@@ -119,6 +124,7 @@ public class MainActivity extends AppCompatActivity
                         break;
 
                     case R.id.FABafternoon:
+                        p.addAll(MapFragmentB1.addPoints());
                         Toast.makeText(this, "FABafternoon", Toast.LENGTH_SHORT).show();
                         break;
 
