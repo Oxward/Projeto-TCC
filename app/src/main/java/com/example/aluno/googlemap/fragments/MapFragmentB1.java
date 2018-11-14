@@ -27,20 +27,26 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
 
     private static final String TAG = "MapFragmentB1";
     private static final int REQUEST_LOCATION_PERMISSION = 1;
-    private final String[] textMarcadoresB1 =
+
+    private static final String[] textMarcadoresB1 =
             new String[]{"CTF", "Procuradoria Federal", "Agespisa", "Posto R Sá", "Posto Fiscal dos Pontões",
                     "Posto Fiscal do Barão", "Posto de Combustível", "Hospital do Barão", "Posto de Combustível",
                     "Posto Fiscal dos Pontões", "Posto R de Sá", "Rádio FM", "Agespisa", "Procuradoria Federal", "CTF"};
-    private GoogleMap mMap;
-    private ArrayList<LatLng> onibus1 = new ArrayList<>();
+
+    private static final String[] textMarcadoresB2 =
+            new String[]{"CTF", "Procuradoria Federal", "Fartote Freitas", "Educandário", "Paraíba", "Antiga Yamaha",
+                    "Hotel Rio Parnaíba", "Rodoviária Nova", "Posto R Sá", "Rádio FM", "Agespisa",
+                    "Procuradoria Federal", "CTF"};
 
     private View mView;
+    private static GoogleMap mMap;
+    private ArrayList<LatLng> onibus1 = new ArrayList<>();
+
     /**
      * CTF -> -6.785664, -43.041863
      * PROCURADORIA FEDERAL-> -6.777723, -43.031713
@@ -205,8 +211,117 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
         mMap.addPolyline(linha.color(Color.GREEN).width(6f));
     }
 
-    public static List<LatLng> addPoints() {
+    public static void addPointsMorning() {
         ArrayList<LatLng> pontos = new ArrayList<>();
+        PolylineOptions linha = new PolylineOptions();
+        ArrayList<LatLng> bus = new ArrayList<>();
+
+        mMap.clear();
+
+        bus.add(new LatLng(-6.785664, -43.041863)); //CTF
+        bus.add(new LatLng(-6.785455, -43.042095));   //portao +
+        bus.add(new LatLng(-6.777718, -43.033510));   //drogaria +
+        bus.add(new LatLng(-6.777052, -43.033168));   //rotatoria +
+        bus.add(new LatLng(-6.777723, -43.031713)); //PROCURADORIA
+        bus.add(new LatLng(-6.782055, -43.021958)); //AGESPISA
+        bus.add(new LatLng(-6.784738, -43.015697));   //curva+
+        bus.add(new LatLng(-6.777710, -43.009763)); //POSTO R SA
+        bus.add(new LatLng(-6.774250, -43.007421));  //curva +
+        bus.add(new LatLng(-6.773099, -43.007534));  //curva2 +
+        bus.add(new LatLng(-6.772417, -43.006933));  //curva3 +
+        bus.add(new LatLng(-6.763649, -43.010132)); //POSTO FISCAL PONTOES
+        bus.add(new LatLng(-6.756697, -43.012651));  //curva +
+        bus.add(new LatLng(-6.755376, -43.013981));  //POSTO FISCAL BARAO
+        bus.add(new LatLng(-6.755167, -43.013962)); //POSTO DE COMBUSTIVEL
+        bus.add(new LatLng(-6.755167, -43.013962)); //HOSPITAL BARAO
+        bus.add(new LatLng(-6.755167, -43.013962)); //POSTO DE COMBUSTIVEL
+        bus.add(new LatLng(-6.756697, -43.012651));  //curva +
+        bus.add(new LatLng(-6.763639, -43.010490)); //POSTO FISCAL PONTOES
+        bus.add(new LatLng(-6.772417, -43.006933));  //curva +
+        bus.add(new LatLng(-6.773099, -43.007534));  //curva2 +
+        bus.add(new LatLng(-6.774250, -43.007421));  //curva3 +
+        bus.add(new LatLng(-6.777710, -43.009763)); //POSTO R SA
+        bus.add(new LatLng(-6.784738, -43.015697)); //FM
+        bus.add(new LatLng(-6.782055, -43.021958)); //AGESPISA
+        bus.add(new LatLng(-6.777723, -43.031713)); //PROCURADORIA
+        bus.add(new LatLng(-6.777052, -43.033168)); //rotatoria +
+        bus.add(new LatLng(-6.777718, -43.033510)); //drogaria +
+        bus.add(new LatLng(-6.785455, -43.042095)); //portao +
+        bus.add(new LatLng(-6.785664, -43.041863)); //CTF
+
+        pontos.add(new LatLng(-6.785664, -43.041863));
+        pontos.add(new LatLng(-6.777723, -43.031713));
+        pontos.add(new LatLng(-6.782055, -43.021958));
+        pontos.add(new LatLng(-6.777710, -43.009763));
+        pontos.add(new LatLng(-6.763649, -43.010132));
+        pontos.add(new LatLng(-6.755376, -43.013981));
+        pontos.add(new LatLng(-6.755167, -43.013962));
+        pontos.add(new LatLng(-6.755167, -43.013962));
+        pontos.add(new LatLng(-6.755167, -43.013962));
+        pontos.add(new LatLng(-6.763639, -43.010490));
+        pontos.add(new LatLng(-6.777710, -43.009763));
+        pontos.add(new LatLng(-6.784738, -43.015697));
+        pontos.add(new LatLng(-6.782055, -43.021958));
+        pontos.add(new LatLng(-6.777723, -43.031713));
+        pontos.add(new LatLng(-6.785664, -43.041863));
+
+        //Percorre cada LatLon e desenha uma linha entre elas
+        for (int i = 0; i < bus.size(); i++) {
+            linha.add(bus.get(i))
+                    .endCap(new CustomCap(BitmapDescriptorFactory.fromResource(R.drawable.ic_endcap), 15));
+        }
+
+        for (int i = 0; i < pontos.size(); i++) {
+            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                    .position(pontos.get(i)).title(textMarcadoresB1[i]));
+        }
+
+        mMap.addPolyline(linha.color(Color.GREEN).width(6f));
+    }
+
+    public static void addPointsAfternoon() {
+        ArrayList<LatLng> pontos = new ArrayList<>();
+        PolylineOptions linha = new PolylineOptions();
+        ArrayList<LatLng> bus = new ArrayList<>();
+
+        mMap.clear();
+
+        bus.add(new LatLng(-6.785664, -43.041863)); //CTF +
+        bus.add(new LatLng(-6.785455, -43.042095)); //portao +
+        bus.add(new LatLng(-6.777718, -43.033510)); //drogaria +
+        bus.add(new LatLng(-6.777052, -43.033168)); //rotatoria +
+        bus.add(new LatLng(-6.777723, -43.031713));//PROCURADORIA +
+        bus.add(new LatLng(-6.781280, -43.023365));//antes freitas +
+        bus.add(new LatLng(-6.771816, -43.023986));//EDUCANDARIO
+        bus.add(new LatLng(-6.769026, -43.024119));//esquina após educ
+        bus.add(new LatLng(-6.768677, -43.019115));//PARAIBA
+        bus.add(new LatLng(-6.768524, -43.017495));//curva1
+        bus.add(new LatLng(-6.768868, -43.016999));//curva2
+        bus.add(new LatLng(-6.771097, -43.012466));//ANTIGA YAMAHA
+        bus.add(new LatLng(-6.771260, -43.012229));//curva1
+        bus.add(new LatLng(-6.772475, -43.011449));//curva2
+        bus.add(new LatLng(-6.773010, -43.010518));//curva3
+        bus.add(new LatLng(-6.774108, -43.009409));//HOTEL
+        bus.add(new LatLng(-6.778520, -43.004591));//curva
+        bus.add(new LatLng(-6.778523, -43.004476));//curva2
+        bus.add(new LatLng(-6.780612, -43.002353));//curva3
+        bus.add(new LatLng(-6.781262, -43.001591));//curva4
+        bus.add(new LatLng(-6.784655, -42.996132));//RODOVIARIA
+        bus.add(new LatLng(-6.778669, -43.004371));//curva
+        bus.add(new LatLng(-6.778930, -43.005090));//curva2
+        bus.add(new LatLng(-6.778664, -43.005149));//curva3
+        bus.add(new LatLng(-6.778824, -43.005836));//curva4
+        bus.add(new LatLng(-6.778424, -43.006458));//curva5
+        bus.add(new LatLng(-6.778170, -43.006652));//curva6
+        bus.add(new LatLng(-6.776103, -43.008721));//curva7
+        bus.add(new LatLng(-6.777710, -43.009763));//POSTO R SA
+        bus.add(new LatLng(-6.784738, -43.015697));//FM
+        bus.add(new LatLng(-6.782055, -43.021958));//AGESPISA
+        bus.add(new LatLng(-6.777723, -43.031713));//PROCURADORIA
+        bus.add(new LatLng(-6.777052, -43.033168));//rotatoria trevo
+        bus.add(new LatLng(-6.777718, -43.033510));//drogaria
+        bus.add(new LatLng(-6.785455, -43.042095));//portao ctf
+        bus.add(new LatLng(-6.785664, -43.041863));//CTF
 
         pontos.add(new LatLng(-6.785664, -43.041863));
         pontos.add(new LatLng(-6.777723, -43.031713));
@@ -222,6 +337,40 @@ public class MapFragmentB1 extends Fragment implements OnMapReadyCallback {
         pontos.add(new LatLng(-6.777723, -43.031713));
         pontos.add(new LatLng(-6.785664, -43.041863));
 
-        return pontos;
+        for (int i = 0; i < bus.size(); i++) {
+            linha.add(bus.get(i));
+        }
+
+        for (int i = 0; i < pontos.size(); i++) {
+            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                    .position(pontos.get(i)).title(textMarcadoresB2[i]));
+        }
+
+        mMap.addPolyline(linha.color(Color.GREEN).width(6f));
     }
+
+    public static void addPointsEvening() {
+        ArrayList<LatLng> pontos = new ArrayList<>();
+        PolylineOptions linha = new PolylineOptions();
+
+        mMap.clear();
+
+        pontos.add(new LatLng(-6.776791, -43.033270));
+        pontos.add(new LatLng(-6.769746, -43.034948));
+        pontos.add(new LatLng(-6.769322, -43.028004));
+        pontos.add(new LatLng(-6.769123, -43.024407));
+        pontos.add(new LatLng(-6.768697, -43.019313));
+        pontos.add(new LatLng(-6.773904, -43.009603));
+        pontos.add(new LatLng(-6.776442, -43.009157));
+        pontos.add(new LatLng(-6.777658, -43.031591));
+
+        for (LatLng l : pontos) {
+            linha.add(l);
+            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                    .position(l));
+        }
+
+        mMap.addPolyline(linha.color(Color.GREEN).width(6f));
+    }
+
 }

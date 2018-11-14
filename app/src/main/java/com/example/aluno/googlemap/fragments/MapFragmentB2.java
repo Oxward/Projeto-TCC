@@ -31,14 +31,16 @@ public class MapFragmentB2 extends Fragment implements OnMapReadyCallback {
 
     private static final String TAG = "MapFragmentB2";
     private static final int REQUEST_LOCATION_PERMISSION = 1;
+
     private final String[] textMarcadoresB2 =
             new String[]{"CTF", "Procuradoria Federal", "Fartote Freitas", "Educandário", "Paraíba", "Antiga Yamaha",
                     "Hotel Rio Parnaíba", "Rodoviária Nova", "Posto R Sá", "Rádio FM", "Agespisa",
                     "Procuradoria Federal", "CTF"};
-    private GoogleMap mMap;
-    private ArrayList<LatLng> onibus2 = new ArrayList<>();
 
     private View mView;
+    private static GoogleMap mMap;
+    private ArrayList<LatLng> onibus2 = new ArrayList<>();
+
 
     /**
      * CTF -> -6.785664, -43.041863
@@ -227,5 +229,30 @@ public class MapFragmentB2 extends Fragment implements OnMapReadyCallback {
 
         //Adiciona o desenho do laço anterior ao mapa
         mMap.addPolyline(linha.color(Color.RED).width(4f));
+    }
+
+    public static void addPoints() {
+        ArrayList<LatLng> pontos = new ArrayList<>();
+
+        mMap.clear();
+
+        pontos.add(new LatLng(-6.785664, -43.041863));
+        pontos.add(new LatLng(-6.777723, -43.031713));
+        pontos.add(new LatLng(-6.781160, -43.022939));
+        pontos.add(new LatLng(-6.771816, -43.023986));
+        pontos.add(new LatLng(-6.768677, -43.019115));
+        pontos.add(new LatLng(-6.771097, -43.012466));
+        pontos.add(new LatLng(-6.774108, -43.009409));
+        pontos.add(new LatLng(-6.784655, -42.996132));
+        pontos.add(new LatLng(-6.777710, -43.009763));
+        pontos.add(new LatLng(-6.784738, -43.015697));
+        pontos.add(new LatLng(-6.782055, -43.021958));
+        pontos.add(new LatLng(-6.777723, -43.031713));
+        pontos.add(new LatLng(-6.785664, -43.041863));
+
+        for (LatLng latLng : pontos) {
+            mMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
+                    .position(latLng));
+        }
     }
 }

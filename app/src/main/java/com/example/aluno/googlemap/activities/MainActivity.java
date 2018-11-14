@@ -120,16 +120,18 @@ public class MainActivity extends AppCompatActivity
             case 0:
                 switch (view.getId()) {
                     case R.id.FABmorning:
-                        Toast.makeText(this, "FABMorning", Toast.LENGTH_SHORT).show();
+                        MapFragmentB1.addPointsMorning();
+                        Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.FABafternoon:
-                        p.addAll(MapFragmentB1.addPoints());
-                        Toast.makeText(this, "FABafternoon", Toast.LENGTH_SHORT).show();
+                        MapFragmentB1.addPointsAfternoon();
+                        Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.FABevening:
-                        Toast.makeText(this, "FABevening", Toast.LENGTH_SHORT).show();
+                        MapFragmentB1.addPointsEvening();
+                        Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 break;
@@ -137,15 +139,15 @@ public class MainActivity extends AppCompatActivity
             case 1:
                 switch (view.getId()) {
                     case R.id.FABmorning:
-                        Toast.makeText(this, "FABMorning", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.FABafternoon:
-                        Toast.makeText(this, "FABafternoon", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.FABevening:
-                        Toast.makeText(this, "FABevening", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 break;
@@ -153,15 +155,15 @@ public class MainActivity extends AppCompatActivity
             case 2:
                 switch (view.getId()) {
                     case R.id.FABmorning:
-                        Toast.makeText(this, "FABMorning", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.FABafternoon:
-                        Toast.makeText(this, "FABafternoon", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
                         break;
 
                     case R.id.FABevening:
-                        Toast.makeText(this, "FABevening", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
                         break;
                 }
                 break;
@@ -170,7 +172,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        mMapFragmentAdapter.addFragment(new MapFragmentB1(), "OEE-7906");
+        mMapFragmentAdapter.addFragment(new MapFragmentB1(), "OEE-7903");
         mMapFragmentAdapter.addFragment(new MapFragmentB2(), "OEE-2466");
         mMapFragmentAdapter.addFragment(new MapFragmentB3(), "NHU-1403");
         viewPager.setAdapter(mMapFragmentAdapter);

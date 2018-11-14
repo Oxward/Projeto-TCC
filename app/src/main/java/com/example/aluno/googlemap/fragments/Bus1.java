@@ -31,7 +31,7 @@ public class Bus1 extends Fragment {
         listsView.addHeaderView(viewGroup);
 
         ArrayList<PontosDeParada> list = new ArrayList<>(
-                new Pontos_ViewModel(getActivity().getApplication()).getPdPByTurnPlaca((byte) 1, "OEE-7906")
+                new Pontos_ViewModel(getActivity().getApplication()).getPdPByPlaca("OEE-7903")
         );
 
         Log.d(TAG, "onCreateView: " + list.size());

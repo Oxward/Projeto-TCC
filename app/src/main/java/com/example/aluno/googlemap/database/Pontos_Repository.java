@@ -30,6 +30,10 @@ public class Pontos_Repository {
         return pontos_dao.selectPdPTurno(turno);
     }
 
+    public List<PontosDeParada> getPdPByPlaca(String placa) {
+        return pontos_dao.selectPdPPlaca(placa);
+    }
+
     public List<PontosDeParada> getPdPByTurnPlaca(byte turno, String placa) {
         return pontos_dao.selectPdPTurnoPlaca(turno, placa);
     }

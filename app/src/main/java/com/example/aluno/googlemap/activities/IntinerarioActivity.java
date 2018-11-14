@@ -76,7 +76,7 @@ public class IntinerarioActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        mSectionPageAdapter.addFragment(new Bus1(), "OEE-7906");
+        mSectionPageAdapter.addFragment(new Bus1(), "OEE-7903");
         mSectionPageAdapter.addFragment(new Bus2(), "OEE-2466");
         mSectionPageAdapter.addFragment(new Bus3(), "NHU-1403");
         viewPager.setAdapter(mSectionPageAdapter);

@@ -18,13 +18,11 @@ public interface Pontos_DAO {
     @Query("SELECT * FROM pontoDeParada")
     List<PontosDeParada> selectAllPdP();
 
-    /*
-    @Query("SELECT * FROM pontoDeParada")
-    LiveData<List<PontosDeParada>> selectPdP();
-    */
-
     @Query("SELECT * FROM pontoDeParada WHERE turnoParada = :turno")
     List<PontosDeParada> selectPdPTurno(byte turno);
+
+    @Query("SELECT * FROM pontoDeParada WHERE placaBusParada = :placa")
+    List<PontosDeParada> selectPdPPlaca(String placa);
 
     @Query("SELECT * FROM pontoDeParada WHERE turnoParada = :turno AND placaBusParada = :placa")
     List<PontosDeParada> selectPdPTurnoPlaca(byte turno, String placa);

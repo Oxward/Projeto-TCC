@@ -30,7 +30,7 @@ public class Bus2 extends Fragment {
         listsView.addHeaderView(viewGroup);
 
         ArrayList<PontosDeParada> list = new ArrayList<>(
-                new Pontos_ViewModel(getActivity().getApplication()).getPdPByTurnPlaca((byte) 3, "OEE-2466")
+                new Pontos_ViewModel(getActivity().getApplication()).getPdPByPlaca("OEE-2466")
         );
 
         ListaAdapter adapter = new ListaAdapter(getContext(), R.layout.adapter_view_layout, list);
