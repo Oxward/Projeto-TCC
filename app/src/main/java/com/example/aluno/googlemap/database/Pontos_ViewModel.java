@@ -11,8 +11,8 @@ import java.util.List;
 
 public class Pontos_ViewModel extends AndroidViewModel {
 
-    private Pontos_Repository pontosRepository;
     private List<PontosDeParada> pontosDeParadaList;
+    private Pontos_Repository pontosRepository;
 
     public Pontos_ViewModel(@NonNull Application application) {
         super(application);

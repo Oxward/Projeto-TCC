@@ -11,8 +11,8 @@ import java.util.List;
 
 class Pontos_Repository {
 
-    private Pontos_DAO pontos_dao;
     private static List<PontosDeParada> pontosDeParadaList;
+    private Pontos_DAO pontos_dao;
 
     Pontos_Repository(Application application) {
         ApplicationDatabase database = ApplicationDatabase.getDatabase(application, new AppExecutors());
