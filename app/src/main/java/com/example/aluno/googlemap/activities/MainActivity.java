@@ -21,9 +21,8 @@ import com.example.aluno.googlemap.fragments.MapFragmentAdapter;
 import com.example.aluno.googlemap.fragments.MapFragmentB1;
 import com.example.aluno.googlemap.fragments.MapFragmentB2;
 import com.example.aluno.googlemap.fragments.MapFragmentB3;
-import com.google.android.gms.maps.model.LatLng;
 
-import java.util.ArrayList;
+import es.dmoral.toasty.Toasty;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -114,24 +113,25 @@ public class MainActivity extends AppCompatActivity
 
     public void onButtonPress(View view) {
 
-        ArrayList<LatLng> p = new ArrayList<>();
-
         switch (currentTab) {
             case 0:
                 switch (view.getId()) {
                     case R.id.FABmorning:
                         MapFragmentB1.addPointsMorning();
-                        Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Manhã", null, getResources().getColor(R.color.yellow), Toast.LENGTH_SHORT, false, true).show();
                         break;
 
                     case R.id.FABafternoon:
                         MapFragmentB1.addPointsAfternoon();
-                        Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Tarde", null, getResources().getColor(R.color.orange), Toast.LENGTH_SHORT, false, true).show();
                         break;
 
                     case R.id.FABevening:
                         MapFragmentB1.addPointsEvening();
-                        Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Noite", null, getResources().getColor(R.color.purple), Toast.LENGTH_SHORT, false, true).show();
                         break;
                 }
                 break;
@@ -139,15 +139,18 @@ public class MainActivity extends AppCompatActivity
             case 1:
                 switch (view.getId()) {
                     case R.id.FABmorning:
-                        Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Manhã", null, getResources().getColor(R.color.yellow), Toast.LENGTH_SHORT, false, true).show();
                         break;
 
                     case R.id.FABafternoon:
-                        Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Tarde", null, getResources().getColor(R.color.orange), Toast.LENGTH_SHORT, false, true).show();
                         break;
 
                     case R.id.FABevening:
-                        Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Noite", null, getResources().getColor(R.color.purple), Toast.LENGTH_SHORT, false, true).show();
                         break;
                 }
                 break;
@@ -155,15 +158,18 @@ public class MainActivity extends AppCompatActivity
             case 2:
                 switch (view.getId()) {
                     case R.id.FABmorning:
-                        Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Manhã", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Manhã", null, getResources().getColor(R.color.yellow), Toast.LENGTH_SHORT, false, true).show();
                         break;
 
                     case R.id.FABafternoon:
-                        Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Tarde", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Tarde", null, getResources().getColor(R.color.orange), Toast.LENGTH_SHORT, false, true).show();
                         break;
 
                     case R.id.FABevening:
-                        Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(this, "Rota da Noite", Toast.LENGTH_SHORT).show();
+                        Toasty.custom(this, "Rota da Noite", null, getResources().getColor(R.color.purple), Toast.LENGTH_SHORT, false, true).show();
                         break;
                 }
                 break;
